@@ -8,8 +8,8 @@ export default function Video() {
   if (!SITE.demoVideo.src) return null;
   return (
     <Section>
-      <SectionHeading eyebrow={VIDEO.eyebrow} headline={VIDEO.headline} />
-      <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-line bg-navy shadow-lg">
+      <SectionHeading tag={VIDEO.tag} headline={VIDEO.headline} />
+      <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-panel shadow-lg">
         <video
           controls
           preload="none"

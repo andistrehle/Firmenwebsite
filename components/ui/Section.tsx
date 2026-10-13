@@ -9,16 +9,16 @@ export default function Section({
 }: {
   id?: string;
   children: ReactNode;
-  tone?: "light" | "alt" | "dark";
+  tone?: "light" | "alt" | "dots";
   className?: string;
 }) {
   const toneClass = {
     light: "bg-surface",
     alt: "bg-surface-alt",
-    dark: "bg-navy text-white",
+    dots: "bg-surface-alt bg-dots",
   }[tone];
   return (
-    <section id={id} className={`py-20 sm:py-28 ${toneClass} ${className}`}>
+    <section id={id} className={`py-24 sm:py-32 ${toneClass} ${className}`}>
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
     </section>
   );

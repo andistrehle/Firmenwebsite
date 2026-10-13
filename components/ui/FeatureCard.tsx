@@ -5,11 +5,11 @@ import type { Feature } from "@/lib/content";
 export default function FeatureCard({ icon, title, text }: Feature) {
   const Icon = ICONS[icon];
   return (
-    <div className="rounded-2xl border border-line bg-surface p-7">
-      <div className="mb-5 inline-flex size-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-        <Icon className="size-5" aria-hidden />
+    <div className="rounded-xl bg-surface-alt p-7">
+      <div className="mb-6 inline-flex size-11 items-center justify-center rounded-lg bg-surface text-ink">
+        <Icon className="size-5" strokeWidth={1.75} aria-hidden />
       </div>
-      <h3 className="text-lg font-semibold text-navy hyphens-auto">{title}</h3>
+      <h3 className="text-lg font-medium tracking-tight text-ink hyphens-auto">{title}</h3>
       <p className="mt-2 leading-relaxed text-ink-soft hyphens-auto">{text}</p>
     </div>
   );

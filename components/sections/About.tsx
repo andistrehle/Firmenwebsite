@@ -4,28 +4,37 @@ import SectionHeading from "../ui/SectionHeading";
 
 export default function About() {
   return (
-    <Section id="ueber-uns">
-      <SectionHeading eyebrow={ABOUT.eyebrow} headline={ABOUT.headline} intro={ABOUT.intro} />
-      <div className="grid gap-6 md:grid-cols-2">
+    <Section id="ueber-uns" tone="dots">
+      <SectionHeading tag={ABOUT.tag} headline={ABOUT.headline} intro={ABOUT.intro} />
+
+      <div className="mx-auto max-w-4xl space-y-6">
         {ABOUT.people.map((person) => (
-          <article key={person.name} className="rounded-2xl border border-line p-7">
-            <div className="flex items-center gap-4">
-              {/* Platzhalter bis zum Portraitfoto */}
-              <div
-                aria-hidden
-                className="inline-flex size-16 shrink-0 items-center justify-center rounded-full bg-surface-alt text-lg font-semibold text-navy"
-              >
-                {person.initials}
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-navy">{person.name}</h3>
-                <p className="text-sm text-accent">{person.role}</p>
-              </div>
+          <article key={person.name} className="grid gap-4 sm:grid-cols-[15rem_1fr]">
+            {/* Platzhalter bis zum Portraitfoto */}
+            <div
+              aria-hidden
+              className="flex aspect-square items-center justify-center rounded-xl bg-gradient-to-br from-surface-deep to-ink-faint text-4xl font-medium tracking-tight text-surface sm:aspect-auto"
+            >
+              {person.initials}
             </div>
-            <p className="mt-5 leading-relaxed text-ink-soft">{person.text}</p>
+            <div className="rounded-xl bg-surface p-7 sm:p-9">
+              <p className="text-xl font-medium leading-snug tracking-tight text-ink sm:text-2xl">
+                {person.lead}
+              </p>
+              <p className="mt-4 leading-relaxed text-ink-soft">{person.text}</p>
+              <p className="mt-6 font-medium text-ink">{person.name}</p>
+              <p className="text-sm text-ink-soft">{person.role}</p>
+            </div>
           </article>
         ))}
       </div>
+
+      <figure className="mx-auto mt-20 max-w-3xl text-center">
+        <blockquote className="text-2xl font-medium leading-snug tracking-[-0.02em] text-balance text-ink sm:text-[2rem]">
+          „{ABOUT.statement}“
+        </blockquote>
+        <figcaption className="mt-5 text-sm text-ink-soft">{ABOUT.statementLabel}</figcaption>
+      </figure>
     </Section>
   );
 }

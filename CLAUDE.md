@@ -28,6 +28,15 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
    Ziel: kein Cookie-Banner nötig.
 7. Mobile zuerst.
 
+## Design
+
+- Monochrom und warm, angelehnt an den Dribbble-Shot „Consultia“
+  (Yohann Varillon): Weiß, warmes Hellgrau, schwarze Buttons, keine Akzentfarbe.
+  Schrift Instrument Sans, Überschriften in mittlerer Stärke mit Punkt am Ende,
+  kleine graue Label-Kästchen (`components/ui/Tag.tsx`) über jeder Überschrift.
+- Keine Stockfotos von Personen, die nicht zum Team gehören. Bildflächen zeigen
+  gezeichnete Website-Entwürfe oder echte Fotos von Andreas und Dennis.
+
 ## Rechtliches (verbindlich)
 
 - Unternehmensträger ist **Andreas Strehle, Einzelunternehmer** (seit 01.10.2026).

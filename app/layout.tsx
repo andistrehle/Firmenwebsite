@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import { SITE } from "@/lib/site-config";
 import "./globals.css";
 
 // Wird von next/font zur Build-Zeit heruntergeladen und lokal ausgeliefert —
 // zur Laufzeit erfolgt keine Verbindung zu Google.
-const inter = Inter({
-  variable: "--font-inter",
+const instrument = Instrument_Sans({
+  variable: "--font-instrument",
   subsets: ["latin"],
   display: "swap",
 });
@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${instrument.variable} font-sans`}>{children}</body>
     </html>
   );
 }

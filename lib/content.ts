@@ -12,8 +12,9 @@ import { BRAND } from "./site-config";
 
 export type NavItem = { label: string; href: string };
 export type Feature = { icon: IconName; title: string; text: string };
-export type Step = { title: string; text: string };
+export type Step = { icon: IconName; title: string; text: string };
 export type Faq = { question: string; answer: string };
+export type Chip = { icon: IconName; title: string; text: string };
 
 export type ServiceStatus = "verfügbar" | "entwicklung";
 export type Service = {
@@ -22,7 +23,8 @@ export type Service = {
   status: ServiceStatus;
   title: string;
   text: string;
-  points: string[];
+  /** Häkchen-Kärtchen im Bild rechts, solange diese Stufe gewählt ist */
+  highlights: string[];
   price?: string;
   priceNote?: string;
 };
@@ -33,8 +35,7 @@ export type Reference = { tag: string; title: string; text: string; url?: string
 
 export const NAV: NavItem[] = [
   { label: "Leistungen", href: "#leistungen" },
-  { label: "Beispiel", href: "#beispiel" },
-  { label: "Referenzen", href: "#referenzen" },
+  { label: "Ablauf", href: "#ablauf" },
   { label: "Über uns", href: "#ueber-uns" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -46,59 +47,26 @@ export const HEADER = {
 };
 
 export const HERO = {
-  eyebrow: "Für Einzelanwälte und kleine Kanzleien",
+  tag: "Websites für Anwaltskanzleien",
   headline: "Ihre Mandanten erreichen Sie online, bevor sie anrufen.",
   subline:
     "Wir bauen Kanzlei-Websites mit einer Anfragestrecke, die Anliegen geordnet bei Ihnen ankommen lässt. Ihre Kanzleisoftware bleibt, wie sie ist.",
-  offerTitle: "Kostenlose klickbare Demo in 48 Stunden",
-  offerText: "Mit 2 bis 3 Designvorschlägen für Ihre Kanzlei. Unverbindlich.",
-  primaryCta: "Demo anfordern",
-  secondaryCta: "Beispiel ansehen",
+  primaryCta: "Kostenlose Demo anfordern",
+  secondaryCta: "Leistungen ansehen",
   trust: ["Ohne Tracking", "Ohne Cookie-Banner", "Persönlich in München und NRW"],
-};
-
-export const PROBLEMS = {
-  eyebrow: "Kennen Sie das?",
-  headline: "Gute Mandate gehen selten an der Arbeit verloren, sondern am Eingang.",
-  items: [
-    {
-      icon: "phone",
-      title: "Anfragen kommen ungeordnet",
-      text: "Anrufe, E-Mails, Kontaktformulare. Bei fast jeder Anfrage fehlt etwas, das Sie erst nachfragen müssen.",
-    },
-    {
-      icon: "clock",
-      title: "Erstgespräche kosten Zeit",
-      text: "Manches Gespräch endet mit der Erkenntnis, dass das Anliegen gar nicht zu Ihren Rechtsgebieten passt.",
-    },
-    {
-      icon: "monitor",
-      title: "Die Website ist in die Jahre gekommen",
-      text: "Auf dem Smartphone schwer lesbar, selten aktualisiert und ohne klaren Weg zur Kontaktaufnahme.",
-    },
-  ] satisfies Feature[],
-};
-
-export const BENEFITS = {
-  eyebrow: "Was sich ändert",
-  headline: "Drei Dinge, die Ihren Kanzleialltag spürbar entlasten",
-  items: [
-    {
-      icon: "clipboard",
-      title: "Geordnete Erstanfragen",
-      text: "Die Anfragestrecke fragt Rechtsgebiet, Anliegen und wichtige Daten ab. Bei Ihnen kommt eine übersichtliche Zusammenfassung an.",
-    },
-    {
-      icon: "calendar",
-      title: "Termine ohne Telefonschleife",
-      text: "Mandanten wählen selbst einen freien Termin für das Erstgespräch. Sie legen fest, welche Zeiten buchbar sind.",
-    },
-    {
-      icon: "plug",
-      title: "Passt zu Ihrer Kanzleisoftware",
-      text: "Wir ersetzen RA-MICRO, Advoware oder DATEV nicht. Abrechnung, beA und Fristenkontrolle bleiben dort, wo sie heute sind.",
-    },
-  ] satisfies Feature[],
+  /** Schwebende Kärtchen auf dem Website-Entwurf */
+  chips: [
+    { icon: "inbox", title: "Neue Anfrage", text: "Arbeitsrecht, Kündigung" },
+    { icon: "zap", title: "Demo in 48 Stunden", text: "2 bis 3 Entwürfe, kostenlos" },
+  ] satisfies Chip[],
+  /** Beschriftung des gezeichneten Website-Entwurfs (Beispielkanzlei) */
+  mockup: {
+    url: "kanzlei-beispiel.de",
+    firm: "Kanzlei Beispiel",
+    headline: "Arbeitsrecht in München",
+    cta: "Anliegen schildern",
+    areas: ["Kündigung", "Abfindung", "Arbeitsvertrag"],
+  },
 };
 
 export const SERVICE_STATUS_LABEL: Record<ServiceStatus, string> = {
@@ -107,22 +75,17 @@ export const SERVICE_STATUS_LABEL: Record<ServiceStatus, string> = {
 };
 
 export const SERVICES = {
-  eyebrow: "Leistungen",
-  headline: "In Stufen aufgebaut. Sie entscheiden, wie weit Sie gehen.",
-  intro:
-    "Sie beginnen mit einer zeitgemäßen Website. Die weiteren Stufen bauen darauf auf, wenn es für Ihre Kanzlei passt.",
+  tag: "Leistungen",
+  headline: "Drei Stufen. Sie entscheiden, wie weit Sie gehen.",
+  cta: "Kostenlose Demo anfordern",
   items: [
     {
       icon: "layout",
       stage: "Stufe 1",
       status: "verfügbar",
       title: "Website mit Anfragestrecke",
-      text: "Eine schnelle, gut lesbare Website, die Ihre Rechtsgebiete klar darstellt und Mandanten strukturiert zur Anfrage führt.",
-      points: [
-        "Für Smartphone, Tablet und Desktop",
-        "Anfragestrecke und Terminbuchung",
-        "Texte gemeinsam mit Ihnen erarbeitet",
-      ],
+      text: "Eine schnelle, gut lesbare Website, die Ihre Rechtsgebiete klar darstellt und Mandanten strukturiert zur Anfrage führt. Mit Terminbuchung für das Erstgespräch.",
+      highlights: ["Rechtsgebiete klar dargestellt", "Anfragen geordnet erfasst", "Erstgespräch direkt buchbar"],
       price: "ab 2.490 €", // TODO: mit Andreas abstimmen (Stufenmodell oder Dossier-Pakete)
       priceNote: "einmalig, Betreuung optional ab 99 € im Monat",
     },
@@ -131,31 +94,48 @@ export const SERVICES = {
       stage: "Stufe 2",
       status: "entwicklung",
       title: "Mandanten-Upload",
-      text: "Mandanten reichen Unterlagen sicher über Ihre Website ein, statt sie per E-Mail zu schicken.",
-      points: [
-        "Dokumente direkt der Anfrage zugeordnet",
-        "Vertrag nach § 43e BRAO",
-        "Preis auf Anfrage",
-      ],
+      text: "Mandanten reichen Unterlagen sicher über Ihre Website ein, statt sie per E-Mail zu schicken. Mit Vertrag nach § 43e BRAO.",
+      highlights: ["Unterlagen sicher eingereicht", "Direkt der Anfrage zugeordnet", "Keine Anhänge per E-Mail"],
     },
     {
       icon: "dashboard",
       stage: "Stufe 3",
       status: "entwicklung",
       title: "Kanzlei-Dashboard",
-      text: "Ein Arbeitsplatz für Eingang, Termine und Wiedervorlagen als Ergänzung zu Ihrer bestehenden Software.",
-      points: [
-        "Übersicht statt weiterer Insellösung",
-        "Fristenkontrolle bleibt im Primärsystem",
-        "Preis auf Anfrage",
-      ],
+      text: "Ein Arbeitsplatz für Eingang, Termine und Wiedervorlagen als Ergänzung zu Ihrer Software. Die Fristenkontrolle bleibt im Primärsystem.",
+      highlights: ["Eingang auf einen Blick", "Termine und Wiedervorlagen", "Ergänzt Ihre Kanzleisoftware"],
     },
   ] satisfies Service[],
 };
 
+export const PROCESS = {
+  tag: "Ablauf",
+  headline: "In 48 Stunden sehen Sie Ihre neue Website.",
+  intro:
+    "Bevor Sie sich entscheiden, bauen wir Ihnen eine klickbare Demo mit 2 bis 3 Designvorschlägen. Kostenlos und ohne Verpflichtung.",
+  steps: [
+    {
+      icon: "mail",
+      title: "Sie schreiben uns",
+      text: "Kanzleiname, Rechtsgebiete und Ihre heutige Website genügen.",
+    },
+    {
+      icon: "layout",
+      title: "Wir bauen die Demo",
+      text: "Innerhalb von 48 Stunden erhalten Sie einen Link zu 2 bis 3 Entwürfen.",
+    },
+    {
+      icon: "check",
+      title: "Sie entscheiden",
+      text: "Gefällt Ihnen ein Entwurf, besprechen wir die Umsetzung. Sonst nicht.",
+    },
+  ] satisfies Step[],
+  cta: "Demo anfordern",
+};
+
 export const DEMO = {
-  eyebrow: "Beispiel",
-  headline: "So kommt eine Anfrage über die Anfragestrecke bei Ihnen an",
+  tag: "Beispiel",
+  headline: "So kommt eine Anfrage bei Ihnen an.",
   intro:
     "Ein vereinfachtes Beispiel mit erfundenen Daten. Links die Fragen, wie sie der Mandant beantwortet. Rechts die Zusammenfassung, die Sie erhalten.",
   notice: "Beispiel mit erfundenen Daten",
@@ -181,22 +161,9 @@ export const DEMO = {
   ] satisfies SummaryRow[],
 };
 
-export const DEMO_OFFER = {
-  eyebrow: "Unser Angebot zum Kennenlernen",
-  headline: "In 48 Stunden sehen Sie Ihre neue Website",
-  intro:
-    "Bevor Sie sich entscheiden, bauen wir Ihnen eine klickbare Demo mit 2 bis 3 Designvorschlägen. Kostenlos und ohne Verpflichtung.",
-  steps: [
-    { title: "Sie schreiben uns", text: "Kanzleiname, Rechtsgebiete und Ihre heutige Website genügen." },
-    { title: "Wir bauen die Demo", text: "Innerhalb von 48 Stunden erhalten Sie einen Link zu 2 bis 3 Entwürfen." },
-    { title: "Sie entscheiden", text: "Gefällt Ihnen ein Entwurf, besprechen wir die Umsetzung. Sonst nicht." },
-  ] satisfies Step[],
-  cta: "Demo anfordern",
-};
-
 export const REFERENCES = {
-  eyebrow: "Referenzen",
-  headline: "Was wir bisher gebaut haben",
+  tag: "Referenzen",
+  headline: "Was wir bisher gebaut haben.",
   intro: "Wenige Projekte, dafür echte. Kundennamen nennen wir nur mit schriftlicher Freigabe.",
   items: [
     {
@@ -215,14 +182,14 @@ export const REFERENCES = {
 };
 
 export const VIDEO = {
-  eyebrow: "In 60 Sekunden",
-  headline: "Sehen Sie selbst, wie es funktioniert",
+  tag: "In 60 Sekunden",
+  headline: "Sehen Sie selbst, wie es funktioniert.",
   fallback: "Ihr Browser kann dieses Video nicht abspielen.",
 };
 
 export const PRIVACY = {
-  eyebrow: "Datenschutz und Berufsrecht",
-  headline: "Für Berufsgeheimnisträger gebaut, nicht nachträglich angepasst",
+  tag: "Datenschutz und Berufsrecht",
+  headline: "Für Berufsgeheimnisträger gebaut.",
   intro:
     "Ihre Website ist das Erste, was Mandanten von Ihrer Sorgfalt sehen. Deshalb bauen wir sie so, dass Sie jede Frage zum Datenschutz beantworten können.",
   items: [
@@ -239,7 +206,7 @@ export const PRIVACY = {
     {
       icon: "fileSignature",
       title: "Vertrag nach § 43e BRAO",
-      text: "Sobald Mandantendaten verarbeitet werden, mit schriftlicher Verschwiegenheitsverpflichtung.",
+      text: "Sobald Mandantendaten verarbeitet werden, mit schriftlicher Verschwiegenheits\u00ADverpflichtung.", // \u00AD = weiche Trennstelle für schmale Karten
     },
     {
       icon: "scale",
@@ -250,28 +217,34 @@ export const PRIVACY = {
 };
 
 export const ABOUT = {
-  eyebrow: "Über uns",
-  headline: "Persönlich erreichbar statt Ticketsystem",
+  tag: "Über uns",
+  headline: "Persönlich erreichbar statt Ticketsystem.",
   intro: `Hinter ${BRAND.name} stehen zwei Menschen. Sie sprechen immer direkt mit denen, die Ihre Website bauen.`,
   people: [
     {
       initials: "AS",
       name: "Andreas Strehle",
       role: "Technik und Umsetzung, München",
+      lead: "Ich sorge dafür, dass Ihre Website zuverlässig läuft und Anfragen sauber ankommen.",
       text: "Diplom-Wirtschaftsingenieur mit über 14 Jahren Projekt- und Programmmanagement in Automotive, Aerospace und Rail. Zertifiziert als KI-Manager und DEKRA AI Officer. Ihr Ansprechpartner für Gespräche vor Ort in München.",
     },
     {
       initials: "DS",
       name: "Dennis da Silva",
       role: "Design und Marketing, NRW",
-      text: "Verantwortet Gestaltung und Kommunikation. Sorgt dafür, dass Ihre Website nicht nur funktioniert, sondern Mandanten anspricht.", // TODO: von Dennis bestätigen lassen
+      lead: "Ich sorge dafür, dass Ihre Website Mandanten anspricht.", // TODO: von Dennis bestätigen lassen
+      text: "Verantwortet Gestaltung und Kommunikation, vom ersten Entwurf bis zu den Texten, die Ihre Kanzlei verständlich beschreiben.", // TODO: von Dennis bestätigen lassen
     },
   ],
+  /** Grundsatz statt Kundenzitat, solange keine freigegebenen Zitate vorliegen */
+  statement:
+    "Wir ersetzen Ihre Kanzleisoftware nicht. Wir sorgen dafür, dass neue Mandate geordnet bei Ihnen ankommen.",
+  statementLabel: "Unser Grundsatz",
 };
 
 export const FAQ = {
-  eyebrow: "Häufige Fragen",
-  headline: "Was Kanzleien uns am häufigsten fragen",
+  tag: "FAQ",
+  headline: "Was Kanzleien uns fragen, bevor sie starten.",
   items: [
     {
       question: "Ersetzt das meine Kanzleisoftware?",
@@ -302,22 +275,26 @@ export const FAQ = {
 };
 
 export const CONTACT = {
-  eyebrow: "Kontakt",
-  headline: "Fordern Sie Ihre kostenlose Demo an",
-  intro:
-    "Schreiben Sie uns kurz zu Ihrer Kanzlei. Innerhalb von 48 Stunden erhalten Sie einen Link zu Ihren Entwürfen.",
+  tag: "Kontakt",
+  headline: "Fordern Sie Ihre kostenlose Demo an.",
+  intro: "Schreiben Sie uns kurz zu Ihrer Kanzlei. Innerhalb von 48 Stunden erhalten Sie:",
+  checklist: [
+    "2 bis 3 klickbare Entwürfe für Ihre Kanzlei",
+    "Einen Vorschlag für Ihre Anfragestrecke",
+    "Ein Festpreisangebot, falls Sie weitermachen möchten",
+  ],
   bookingCta: "Lieber direkt einen Termin",
   emailLabel: "Oder per E-Mail:",
   form: {
     name: "Ihr Name",
     firm: "Kanzlei",
     email: "E-Mail-Adresse",
-    website: "Heutige Website (falls vorhanden)",
+    website: "Heutige Website",
+    websitePlaceholder: "falls vorhanden",
     message: "Ihre Nachricht",
     messagePlaceholder: "z. B. Rechtsgebiete und was Sie an Ihrer Website verbessern möchten",
     submit: "Demo anfordern",
-    privacyNote:
-      "Ihre Angaben verwenden wir nur zur Bearbeitung Ihrer Anfrage. Details in der",
+    privacyNote: "Ihre Angaben verwenden wir nur zur Bearbeitung Ihrer Anfrage. Details in der",
     privacyLink: "Datenschutzerklärung",
     mailtoNote: "Beim Absenden öffnet sich Ihr E-Mail-Programm mit der vorbereiteten Nachricht.",
     subject: "Demo-Anfrage über die Website",

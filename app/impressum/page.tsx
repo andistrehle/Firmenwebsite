@@ -12,7 +12,7 @@ export default function ImpressumPage() {
   return (
     <LegalPage title={IMPRINT.title} backLabel={IMPRINT.back}>
       <section>
-        <h2 className="mb-3 text-lg font-semibold text-navy">{IMPRINT.providerHeading}</h2>
+        <h2 className="mb-3 text-lg font-medium text-ink">{IMPRINT.providerHeading}</h2>
         <p>
           {L.owner} ({L.form})
           <br />
@@ -23,7 +23,7 @@ export default function ImpressumPage() {
         <p className="mt-3 text-ink-soft">{L.tradingAs}</p>
       </section>
       <section>
-        <h2 className="mb-3 text-lg font-semibold text-navy">{IMPRINT.contactHeading}</h2>
+        <h2 className="mb-3 text-lg font-medium text-ink">{IMPRINT.contactHeading}</h2>
         <p>
           {IMPRINT.phoneLabel}: {L.phone || IMPRINT.missing}
           <br />
@@ -31,7 +31,7 @@ export default function ImpressumPage() {
         </p>
       </section>
       <section>
-        <h2 className="mb-3 text-lg font-semibold text-navy">{IMPRINT.vatHeading}</h2>
+        <h2 className="mb-3 text-lg font-medium text-ink">{IMPRINT.vatHeading}</h2>
         <p>
           {IMPRINT.vatLabel}: {L.vatId || IMPRINT.vatPending}
         </p>

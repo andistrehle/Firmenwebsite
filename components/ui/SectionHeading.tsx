@@ -1,37 +1,25 @@
-/** Einheitliche Abschnitts-Überschrift mit optionaler Einleitung. */
+import Tag from "./Tag";
+
+/** Einheitliche Abschnitts-Überschrift: Label, große Headline, optionale Einleitung. */
 export default function SectionHeading({
-  eyebrow,
+  tag,
   headline,
   intro,
   align = "center",
-  onDark = false,
 }: {
-  eyebrow?: string;
+  tag?: string;
   headline: string;
   intro?: string;
   align?: "center" | "left";
-  onDark?: boolean;
 }) {
   const alignClass = align === "center" ? "mx-auto text-center" : "text-left";
   return (
     <div className={`mb-12 max-w-2xl sm:mb-16 ${alignClass}`}>
-      {eyebrow && (
-        <p
-          className={`mb-3 text-sm font-semibold uppercase tracking-wider ${onDark ? "text-accent-soft" : "text-accent"}`}
-        >
-          {eyebrow}
-        </p>
-      )}
-      <h2
-        className={`text-3xl font-semibold tracking-tight text-balance sm:text-4xl ${onDark ? "text-white" : "text-navy"}`}
-      >
+      {tag && <Tag>{tag}</Tag>}
+      <h2 className="mt-4 text-[2rem] font-medium leading-[1.1] tracking-[-0.03em] text-balance text-ink sm:text-5xl">
         {headline}
       </h2>
-      {intro && (
-        <p className={`mt-4 text-lg text-pretty ${onDark ? "text-white/75" : "text-ink-soft"}`}>
-          {intro}
-        </p>
-      )}
+      {intro && <p className="mt-5 text-lg leading-relaxed text-pretty text-ink-soft">{intro}</p>}
     </div>
   );
 }

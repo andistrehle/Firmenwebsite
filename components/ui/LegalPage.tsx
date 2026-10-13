@@ -26,12 +26,12 @@ export default function LegalPage({
       <main className="mx-auto w-full max-w-3xl px-5 py-16 sm:px-8">
         <a
           href={`${BASE_PATH}/`}
-          className="mb-8 inline-flex items-center gap-1.5 text-sm text-ink-soft hover:text-navy"
+          className="mb-8 inline-flex items-center gap-1.5 text-sm text-ink-soft hover:text-ink"
         >
           <ArrowLeft className="size-4" aria-hidden />
           {backLabel}
         </a>
-        <h1 className="text-3xl font-semibold tracking-tight text-navy sm:text-4xl">{title}</h1>
+        <h1 className="text-3xl font-medium tracking-tight text-ink sm:text-4xl">{title}</h1>
         <div className="mt-10 space-y-8 leading-relaxed text-ink">{children}</div>
       </main>
       <Footer />

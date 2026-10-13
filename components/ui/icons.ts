@@ -1,37 +1,31 @@
 import {
-  CalendarDays,
-  Clock,
-  FileUp,
-  ClipboardList,
+  Check,
   EyeOff,
   FileSignature,
+  FileUp,
+  Inbox,
   LayoutDashboard,
   LayoutTemplate,
-  Monitor,
-  Phone,
-  Plug,
+  Mail,
   Scale,
-  Server,
   ShieldCheck,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
 /** Icons, die in lib/content.ts per Name referenziert werden können. */
 export const ICONS = {
-  calendar: CalendarDays,
-  clock: Clock,
-  clipboard: ClipboardList,
-  upload: FileUp,
+  check: Check,
   eyeOff: EyeOff,
   fileSignature: FileSignature,
+  upload: FileUp,
+  inbox: Inbox,
   dashboard: LayoutDashboard,
   layout: LayoutTemplate,
-  monitor: Monitor,
-  phone: Phone,
-  plug: Plug,
+  mail: Mail,
   scale: Scale,
-  server: Server,
   shield: ShieldCheck,
+  zap: Zap,
 } satisfies Record<string, LucideIcon>;
 
 export type IconName = keyof typeof ICONS;
