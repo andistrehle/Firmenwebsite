@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* Farbschema: seriös und ruhig — Deep Navy, viel Weiß, Mintgrün als Akzent */
+  --color-surface: #ffffff; /* Grundfläche */
+  --color-surface-alt: #f4f6f9; /* abgesetzte Abschnitte */
+  --color-ink: #1b2533; /* Fließtext */
+  --color-ink-soft: #5a6577; /* gedämpfter Text */
+  --color-navy: #0e1f38; /* Headlines, dunkle Flächen */
+  --color-navy-soft: #1d3355; /* Verläufe, Hover auf Navy */
+  --color-accent: #0b7a5e; /* Mintgrün, gedeckt — Buttons, Akzente */
+  --color-accent-strong: #08664e; /* Hover auf Akzent */
+  --color-accent-soft: #e5f4ee; /* helle Akzentfläche */
+  --color-warn: #9a5b00; /* Hinweise, z. B. Fristrelevanz */
+  --color-warn-soft: #fdf3e1;
+  --color-line: #e2e7ee; /* Rahmen, Linien */
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sticky-Header nicht über Sprungziele legen */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
