@@ -1,0 +1,2 @@
+# Shell-Skripte brauchen LF, sonst schlagen sie in Linux-Cloud-Sessions fehl
+*.sh text eol=lf
