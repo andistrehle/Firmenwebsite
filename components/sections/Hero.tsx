@@ -6,7 +6,9 @@ import ButtonLink from "../ui/ButtonLink";
 export default function Hero() {
   const h = HERO.headline;
   return (
-    <section id="top" className="bg-ember relative -mt-20 overflow-hidden pt-20">
+    <section id="top" className="bg-ember relative overflow-hidden">
+      {/* Verlauf von links: dunkelt hinter dem Text ab, damit der Kontrast stabil bleibt */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-surface/80 via-surface/35 to-transparent" />
       {/* feine senkrechte Haarlinien als Struktur */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden justify-between px-[30%] md:flex">
         <span className="w-px bg-ink/5" />
@@ -14,7 +16,7 @@ export default function Hero() {
         <span className="w-px bg-ink/5" />
       </div>
 
-      <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center px-5 py-16 sm:px-8 lg:py-20">
+      <div className="relative mx-auto grid min-h-svh w-full max-w-7xl items-center px-5 pt-32 pb-16 sm:px-8 lg:pt-36 lg:pb-20">
         <div className="max-w-3xl">
           <p className="flex w-fit animate-rise items-center gap-2.5 border-t border-line pt-3 text-[12px] leading-snug text-ink-faint">
             <MapPin className="size-5 shrink-0" strokeWidth={1.3} aria-hidden />
@@ -25,7 +27,7 @@ export default function Hero() {
             </span>
           </p>
 
-          <h1 className="mt-6 animate-rise font-display text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.04em] text-balance text-ink [animation-delay:60ms] [text-shadow:0_6px_40px_rgb(0_0_0/0.45)] sm:text-7xl xl:text-[5.4rem]">
+          <h1 className="mt-6 animate-rise font-display text-[3rem] font-extrabold leading-[0.9] tracking-[-0.045em] text-balance text-ink [animation-delay:60ms] [text-shadow:0_6px_40px_rgb(0_0_0/0.45)] sm:text-7xl xl:text-[5.4rem]">
             {h.before}{" "}
             <em className="font-serif font-normal tracking-[-0.01em] text-copper-lit">{h.accent}</em>{" "}
             {h.after}

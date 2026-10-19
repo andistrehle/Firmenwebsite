@@ -6,23 +6,26 @@ import { HEADER, NAV } from "@/lib/content";
 import ButtonLink from "./ui/ButtonLink";
 import Wordmark from "./ui/Wordmark";
 
-/** Logo links, Navigation als Glas-Kapsel in der Mitte, helle Pille rechts. */
+/**
+ * Schwebende Navigation als schmale Pille, transparent mit Glas-Unschärfe.
+ * Liegt fixiert über dem Hero, der bis an den oberen Rand reicht.
+ */
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-gradient-to-b from-surface via-surface/85 to-surface/0 pb-2">
-      <div className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-        <a href="#top" aria-label="Zur Startseite">
+    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-6">
+      <div className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between gap-4 rounded-full border border-ink/12 bg-surface/30 py-2 pr-2 pl-5 shadow-[0_10px_40px_-12px] shadow-black/60 backdrop-blur-xl">
+        <a href="#top" aria-label="Zur Startseite" className="shrink-0">
           <Wordmark />
         </a>
 
-        <nav aria-label="Hauptnavigation" className="glass hidden rounded-xl p-1 lg:block">
+        <nav aria-label="Hauptnavigation" className="hidden lg:block">
           <ul className="flex items-center gap-1">
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="inline-flex rounded-lg bg-ink/5 px-3.5 py-2 text-[13.5px] text-ink/80 transition-colors hover:bg-ink/15 hover:text-ink"
+                  className="inline-flex rounded-full px-3.5 py-2 text-[14px] text-ink/75 transition-colors hover:bg-ink/10 hover:text-ink"
                 >
                   {item.label}
                 </a>
@@ -31,13 +34,15 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2.5">
-          <ButtonLink href="#kontakt" variant="light" className="hidden text-[13.5px] sm:inline-flex">
-            {HEADER.cta}
-          </ButtonLink>
+        <div className="flex items-center gap-1.5">
+          <div className="hidden sm:block">
+            <ButtonLink href="#kontakt" variant="light" className="py-2! text-[13.5px]">
+              {HEADER.cta}
+            </ButtonLink>
+          </div>
           <button
             type="button"
-            className="glass inline-flex size-10 items-center justify-center rounded-xl text-ink lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full text-ink hover:bg-ink/10 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? HEADER.menuClose : HEADER.menuOpen}
@@ -50,15 +55,15 @@ export default function Header() {
       {open && (
         <nav
           aria-label="Hauptnavigation mobil"
-          className="fixed inset-x-3 top-20 rounded-2xl border border-line bg-surface/95 p-4 backdrop-blur-xl lg:hidden"
+          className="mx-auto mt-2 max-w-4xl rounded-3xl border border-ink/12 bg-surface/97 p-3 shadow-2xl backdrop-blur-xl lg:hidden"
         >
-          <ul className="mb-3 grid gap-0.5">
+          <ul className="mb-2 grid gap-0.5">
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-ink/90 hover:bg-ink/5"
+                  className="block rounded-2xl px-4 py-3 text-ink/90 hover:bg-ink/5"
                 >
                   {item.label}
                 </a>
