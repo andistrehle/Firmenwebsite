@@ -51,12 +51,12 @@ export const HERO = {
   note: ["Persönlich für Sie da", "in München und NRW"],
   /** Überschrift in Zeilen. `accent` wird kursiv in der Serifenschrift gesetzt. */
   headline: {
-    before: "Ihre",
-    accent: "Mandanten",
-    after: "erreichen Sie online, bevor sie anrufen.",
+    before: "Mehr",
+    accent: "Zeit",
+    after: "für Mandanten, Kunden und Mitglieder.",
   },
   subline:
-    "Wir bauen Kanzlei-Websites mit einer Anfragestrecke, die Anliegen geordnet bei Ihnen ankommen lässt. Ihre Kanzleisoftware bleibt, wie sie ist.",
+    "Webseiten, Automatisierung und KI für alle, die weniger verwalten und mehr bewirken wollen.",
   primaryCta: "Kostenlose Demo anfordern",
   secondaryCta: "Leistungen ansehen",
   /** Glaskarten: nur nachprüfbare Fakten, keine Kundenzahlen */
