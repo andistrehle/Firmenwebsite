@@ -42,9 +42,11 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 - Bewegung nur per CSS (`animate-rise`, gestaffelt), abgeschaltet bei
   `prefers-reduced-motion`. Keine Animationsbibliothek.
 - Glaskarten im Hero zeigen nur nachprüfbare Fakten, nie Kundenzahlen oder Quoten.
+- Der Hero ist bewusst nur Text auf dem Glut-Hintergrund, ohne Bild
+  (Entscheidung Andreas, 19.10.2026).
 - Keine Stockfotos von Personen, die nicht zum Team gehören, keine erfundenen
-  Partnerlogos. Bildflächen zeigen gezeichnete Website-Entwürfe oder echte Fotos
-  von Andreas und Dennis. Ein Hintergrundvideo nur selbst gedreht und klein
+  Partnerlogos. Bilder nur als echtes Material: Fotos von Andreas und Dennis,
+  freigegebene Screenshots. Ein Hintergrundvideo nur selbst gedreht und klein
   (Ladezeit auf dem Handy).
 
 ## Rechtliches (verbindlich)

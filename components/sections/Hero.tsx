@@ -1,7 +1,6 @@
 import { MapPin } from "lucide-react";
 import { HERO } from "@/lib/content";
 import ButtonLink from "../ui/ButtonLink";
-import HeroMockup from "./HeroMockup";
 
 /** Vollflächiger Hero mit Glut-Hintergrund. Blöcke gleiten gestaffelt ein (reine CSS-Animation). */
 export default function Hero() {
@@ -15,8 +14,8 @@ export default function Hero() {
         <span className="w-px bg-ink/5" />
       </div>
 
-      <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center gap-16 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:py-20">
-        <div>
+      <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center px-5 py-16 sm:px-8 lg:py-20">
+        <div className="max-w-3xl">
           <p className="flex w-fit animate-rise items-center gap-2.5 border-t border-line pt-3 text-[12px] leading-snug text-ink-faint">
             <MapPin className="size-5 shrink-0" strokeWidth={1.3} aria-hidden />
             <span>
@@ -47,11 +46,8 @@ export default function Hero() {
             {HERO.stats.map((stat, i) => (
               <li
                 key={stat.label}
-                className={`glass relative flex min-h-32 flex-col justify-between rounded-2xl p-3 sm:p-4 ${i === 1 ? "bg-gradient-to-br from-copper-deep/50 to-panel/40" : ""}`}
+                className={`glass flex min-h-32 flex-col justify-between rounded-2xl p-3 sm:p-4 ${i === 1 ? "bg-gradient-to-br from-copper-deep/50 to-panel/40" : ""}`}
               >
-                <span aria-hidden className="absolute right-4 top-3 hidden text-ink-faint sm:block">
-                  *
-                </span>
                 <span className="font-display text-xl font-medium whitespace-nowrap tracking-[-0.03em] text-ink sm:text-3xl">
                   {stat.value}
                 </span>
@@ -59,10 +55,6 @@ export default function Hero() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="animate-rise [animation-delay:360ms]">
-          <HeroMockup />
         </div>
       </div>
     </section>

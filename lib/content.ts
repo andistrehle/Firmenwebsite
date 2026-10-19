@@ -14,7 +14,6 @@ export type NavItem = { label: string; href: string };
 export type Feature = { icon: IconName; title: string; text: string };
 export type Step = { icon: IconName; title: string; text: string };
 export type Faq = { question: string; answer: string };
-export type Chip = { icon: IconName; title: string; text: string };
 
 export type ServiceStatus = "verfügbar" | "entwicklung";
 export type Service = {
@@ -66,19 +65,6 @@ export const HERO = {
     { value: "ab 2.490 €", label: "Website mit Anfragestrecke" },
     { value: "0", label: "Tracking-Cookies" },
   ] satisfies Stat[],
-  /** Schwebende Kärtchen auf dem Website-Entwurf */
-  chips: [
-    { icon: "inbox", title: "Neue Anfrage", text: "Arbeitsrecht, Kündigung" },
-    { icon: "zap", title: "Demo in 48 Stunden", text: "2 bis 3 Entwürfe, kostenlos" },
-  ] satisfies Chip[],
-  /** Beschriftung des gezeichneten Website-Entwurfs (Beispielkanzlei) */
-  mockup: {
-    url: "kanzlei-beispiel.de",
-    firm: "Kanzlei Beispiel",
-    headline: "Arbeitsrecht in München",
-    cta: "Anliegen schildern",
-    areas: ["Kündigung", "Abfindung", "Arbeitsvertrag"],
-  },
 };
 
 export const SERVICE_STATUS_LABEL: Record<ServiceStatus, string> = {

@@ -15,8 +15,7 @@
   --color-copper: #c6713a; /* Akzent: Kupfer */
   --color-copper-lit: #e3a067; /* Akzent hell, Verlaufsende */
   --color-copper-deep: #7a3a14; /* Glut im Hintergrund */
-  --color-paper: #fbf8f5; /* helle Flächen im Website-Entwurf */
-  --color-paper-ink: #1d1410;
+  --color-paper: #fbf8f5; /* heller Hover der Navigations-Pille */
   --color-warn: #f2b660; /* Hinweis „Fristen prüfen“ */
   --color-warn-soft: #3b2611;
 
