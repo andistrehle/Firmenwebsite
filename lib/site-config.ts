@@ -22,7 +22,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; // T
  * Keine Rechtsform im Namen, solange keine existiert.
  */
 export const BRAND = {
-  name: "Arbeitstitel", // TODO: finaler Firmenname
+  name: "Stift & Server", // vorübergehende Marke laut brand/README.md (19.10.2026)
   claim: "Websites und digitale Abläufe für Kanzleien, Unternehmen und Vereine",
 } as const;
 

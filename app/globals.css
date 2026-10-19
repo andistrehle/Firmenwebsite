@@ -1,23 +1,22 @@
 @import "tailwindcss";
+/* Verbindliche Marke „Stift & Server“: Farben und Schriften kommen ausschließlich
+   aus brand/tokens.css. Hier werden sie nur für Tailwind verfügbar gemacht. */
+@import "../brand/tokens.css";
 
-@theme {
-  /* Farbschema: warmes Dunkel mit Kupfer als einzigem Akzent.
-     Angelehnt an die Glut-Optik der Vorlage „Fluxora“, für Kanzleien gedeckter. */
-  --color-surface: #140a06; /* Grund, fast schwarz mit warmem Stich */
-  --color-surface-alt: #1b100b; /* abgesetzte Abschnitte */
-  --color-surface-deep: #2a1a12; /* Labels, Hover */
-  --color-panel: #21140e; /* Karten */
-  --color-panel-hover: #2e1d15;
-  --color-ink: #f7f0ea; /* Überschriften, warmes Weiß */
-  --color-ink-soft: #cbbdb2; /* Fließtext */
-  --color-ink-faint: #8f7f73; /* Nebeninfos */
-  --color-line: #3a2a20; /* Haarlinien, Rahmen */
-  --color-copper: #c6713a; /* Akzent: Kupfer */
-  --color-copper-lit: #e3a067; /* Akzent hell, Verlaufsende */
-  --color-copper-deep: #7a3a14; /* Glut im Hintergrund */
-  --color-paper: #fbf8f5; /* heller Hover der Navigations-Pille */
-  --color-warn: #f2b660; /* Hinweis „Fristen prüfen“ */
-  --color-warn-soft: #3b2611;
+/* inline: Utilities verweisen direkt auf die Marken-Variablen (keine eigenen Hexwerte). */
+@theme inline {
+  --color-surface: var(--grund);
+  --color-surface-alt: var(--abschnitt);
+  --color-panel: var(--karte);
+  --color-line: var(--linie); /* nur Dekor, nie Feldrahmen */
+  --color-line-strong: var(--linie-stark); /* Feldrahmen, Fokus */
+  --color-ink: var(--weiss);
+  --color-ink-soft: var(--text);
+  --color-ink-faint: var(--neben); /* nie unter 14px, nie Kleingedrucktes */
+  --color-copper: var(--kupfer);
+  --color-copper-lit: var(--kupfer-hell);
+  --color-copper-deep: var(--glut); /* nur Fläche, nie Schrift oder dünne Linie */
+  --color-on-copper: var(--auf-kupfer); /* Beschriftung auf Kupferflächen */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
@@ -47,32 +46,38 @@ section[id] {
 }
 
 body {
-  background: var(--color-surface);
-  color: var(--color-ink);
+  background: var(--grund);
+  color: var(--weiss);
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-copper);
-  color: var(--color-ink);
+  background: var(--kupfer);
+  color: var(--auf-kupfer);
+}
+
+/* Einheitlicher Fokusring für alles Bedienbare (Marke: Fokus in Kupfer) */
+:focus-visible {
+  outline: 2px solid var(--kupfer);
+  outline-offset: 3px;
 }
 
 /* Glut-Hintergrund: Kupfer steigt von rechts unten auf, links bleibt es dunkel
    für die Lesbarkeit. Wird im Hero und in Akzentflächen verwendet. */
 .bg-ember {
   background:
-    radial-gradient(60% 70% at 85% 95%, color-mix(in srgb, var(--color-copper) 55%, transparent), transparent 70%),
-    radial-gradient(45% 50% at 100% 40%, color-mix(in srgb, var(--color-copper-deep) 70%, transparent), transparent 70%),
-    linear-gradient(165deg, var(--color-surface-alt) 0%, var(--color-surface) 70%);
+    radial-gradient(60% 70% at 85% 95%, color-mix(in srgb, var(--kupfer) 55%, transparent), transparent 70%),
+    radial-gradient(45% 50% at 100% 40%, color-mix(in srgb, var(--glut) 70%, transparent), transparent 70%),
+    linear-gradient(165deg, var(--abschnitt) 0%, var(--grund) 70%);
 }
 
 /* Glasfläche: halbtransparent, unscharf hinterlegt, feine Lichtkante oben 
    Liegt in der components-Ebene, damit Tailwind-Klassen sie überschreiben können. */
 @layer components {
   .glass {
-    background: color-mix(in srgb, var(--color-panel) 55%, transparent);
-    border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
-    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-ink) 8%, transparent);
+    background: color-mix(in srgb, var(--karte) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--weiss) 12%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--weiss) 8%, transparent);
     backdrop-filter: blur(16px) saturate(1.1);
     -webkit-backdrop-filter: blur(16px) saturate(1.1);
   }

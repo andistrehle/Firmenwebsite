@@ -14,7 +14,7 @@ export default function About() {
               {/* Platzhalter bis zum Portraitfoto */}
               <div
                 aria-hidden
-                className="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-copper to-copper-deep font-display text-xl font-semibold text-ink"
+                className="inline-flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-copper to-copper-lit font-display text-xl font-semibold text-on-copper"
               >
                 {person.initials}
               </div>

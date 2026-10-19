@@ -24,7 +24,7 @@ export default function Demo() {
         <div className="flex flex-col rounded-3xl border border-line bg-panel p-6 sm:p-8">
           <div className="mb-6 flex items-center justify-between gap-4">
             <p className="font-display font-semibold text-ink">{DEMO.formTitle}</p>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/5 px-3 py-1 text-xs text-ink-faint">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-ink/5 px-3 py-1 text-xs text-ink-soft">
               <Info className="size-3.5" aria-hidden />
               {DEMO.notice}
             </span>
@@ -50,7 +50,7 @@ export default function Demo() {
             {started && !done && (
               <li className="rounded-xl border border-copper/50 bg-copper/10 px-4 py-3.5">
                 <p className="text-sm font-medium text-ink">{current.question}</p>
-                <p className="mt-2 rounded-lg border border-line bg-surface/60 px-3 py-2 text-ink-soft">
+                <p className="mt-2 rounded-lg border border-line-strong bg-surface/60 px-3 py-2 text-ink-soft">
                   {current.answer}
                 </p>
               </li>
@@ -87,7 +87,7 @@ export default function Demo() {
                   <dd className="text-ink">
                     {row.value}
                     {row.flag && (
-                      <span className="mt-2 flex w-fit items-center gap-1.5 rounded-full bg-warn-soft px-2.5 py-1 text-xs font-semibold text-warn">
+                      <span className="mt-2 flex w-fit items-center gap-1.5 rounded-full border border-copper bg-copper/10 px-2.5 py-1 text-xs font-semibold text-copper-lit">
                         <TriangleAlert className="size-3.5" aria-hidden />
                         {DEMO.summaryFlag}
                       </span>
@@ -117,8 +117,8 @@ function DemoButton({
   quiet?: boolean;
 }) {
   const variantClass = quiet
-    ? "border border-line text-ink-soft hover:text-ink"
-    : "bg-gradient-to-r from-copper to-copper-lit font-semibold text-ink";
+    ? "border border-line-strong text-ink-soft hover:text-ink"
+    : "bg-gradient-to-r from-copper to-copper-lit font-semibold text-on-copper";
   return (
     <button
       type="button"

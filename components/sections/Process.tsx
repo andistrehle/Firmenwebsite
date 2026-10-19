@@ -26,7 +26,7 @@ export default function Process() {
                 className={`absolute left-1/2 top-0 hidden size-3 -translate-x-1/2 -translate-y-1/2 rounded-full md:block ${last ? "bg-copper-lit shadow-[0_0_16px] shadow-copper-lit" : "bg-ink-faint"}`}
               />
               <div
-                className={`mx-auto inline-flex size-16 items-center justify-center rounded-2xl ${last ? "bg-gradient-to-br from-copper to-copper-lit text-ink" : "glass text-ink-soft"}`}
+                className={`mx-auto inline-flex size-16 items-center justify-center rounded-2xl ${last ? "bg-gradient-to-br from-copper to-copper-lit text-on-copper" : "glass text-ink-soft"}`}
               >
                 <Icon className="size-6" strokeWidth={1.6} aria-hidden />
               </div>

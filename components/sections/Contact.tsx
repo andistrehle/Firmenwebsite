@@ -9,7 +9,7 @@ import Section from "../ui/Section";
 import Tag from "../ui/Tag";
 
 const inputClass =
-  "w-full rounded-xl border border-line bg-surface/70 px-4 py-3.5 text-ink placeholder:text-ink-faint focus:border-copper/60 focus:outline-none focus:ring-2 focus:ring-copper/20";
+  "w-full rounded-xl border border-line-strong bg-surface/70 px-4 py-3.5 text-ink placeholder:text-ink-faint focus:border-copper";
 
 /** Kontaktformular. Sendet bewusst per mailto, bis ein Server-Versand eingerichtet ist. */
 export default function Contact() {
@@ -36,7 +36,7 @@ export default function Contact() {
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <Tag>{CONTACT.tag}</Tag>
-          <h2 className="mt-4 font-display text-[2.6rem] font-semibold leading-[0.95] tracking-[-0.04em] text-balance text-ink sm:text-[4rem]">
+          <h2 className="mt-4 font-display text-[2.6rem] font-semibold leading-[0.95] tracking-[-0.035em] text-balance text-ink sm:text-[4rem]">
             {CONTACT.headline}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-soft">{CONTACT.intro}</p>
@@ -86,11 +86,11 @@ export default function Contact() {
           </p>
           <button
             type="submit"
-            className="w-full rounded-full bg-gradient-to-r from-copper to-copper-lit px-6 py-3.5 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-12px] shadow-copper/60 transition-all hover:-translate-y-0.5"
+            className="w-full rounded-full bg-gradient-to-r from-copper to-copper-lit px-6 py-3.5 text-[15px] font-semibold text-on-copper shadow-[0_14px_40px_-12px] shadow-copper/60 transition-all hover:-translate-y-0.5"
           >
             {f.submit}
           </button>
-          <p className="text-center text-xs text-ink-faint">{f.mailtoNote}</p>
+          <p className="text-center text-xs text-ink-soft">{f.mailtoNote}</p>
         </form>
       </div>
     </Section>

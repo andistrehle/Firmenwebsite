@@ -29,7 +29,7 @@ export default function Services() {
               return (
                 <div
                   key={service.title}
-                  className={`rounded-2xl border transition-colors ${open ? "border-copper/40 bg-gradient-to-br from-copper-deep/40 to-panel" : "border-line bg-panel hover:bg-panel-hover"}`}
+                  className={`rounded-2xl border transition-colors ${open ? "border-copper/40 bg-gradient-to-br from-copper-deep/40 to-panel" : "border-line bg-panel hover:border-line-strong"}`}
                 >
                   <button
                     type="button"
@@ -45,7 +45,7 @@ export default function Services() {
                     <span className="flex-1 font-display text-lg font-semibold tracking-tight text-ink">
                       {service.title}
                     </span>
-                    <span className="text-xs text-ink-faint">
+                    <span className="text-xs text-ink-soft">
                       {service.stage} · {SERVICE_STATUS_LABEL[service.status]}
                     </span>
                   </button>

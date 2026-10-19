@@ -27,7 +27,7 @@ export default function AudiencePage({ content: c }: { content: AudiencePageCont
             </a>
             <div className="mt-10 max-w-3xl">
               <Tag>{c.tag}</Tag>
-              <h1 className="mt-5 animate-rise font-display text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.04em] text-balance text-ink [animation-delay:60ms] sm:text-6xl xl:text-7xl">
+              <h1 className="mt-5 animate-rise font-display text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.035em] text-balance text-ink [animation-delay:60ms] sm:text-6xl xl:text-7xl">
                 {c.headline.before}{" "}
                 <em className="font-serif font-normal tracking-[-0.01em] text-copper-lit">{c.headline.accent}</em>{" "}
                 {c.headline.after}
@@ -102,7 +102,7 @@ export default function AudiencePage({ content: c }: { content: AudiencePageCont
 
         <Section tone="ember">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-[2.4rem] font-semibold leading-[0.95] tracking-[-0.04em] text-balance text-ink sm:text-6xl">
+            <h2 className="font-display text-[2.4rem] font-semibold leading-[0.95] tracking-[-0.035em] text-balance text-ink sm:text-6xl">
               {c.cta.headline}
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-ink-soft">{c.cta.text}</p>

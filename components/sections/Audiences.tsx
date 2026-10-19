@@ -21,7 +21,7 @@ export default function Audiences() {
               className={`group flex flex-col rounded-3xl border p-7 transition-colors sm:p-8 ${item.highlight ? "border-copper/40 bg-gradient-to-br from-copper-deep/40 to-panel" : "glass hover:border-copper/30"}`}
             >
               <div
-                className={`inline-flex size-12 items-center justify-center rounded-2xl ${item.highlight ? "bg-gradient-to-br from-copper to-copper-lit text-ink" : "bg-copper/15 text-copper-lit"}`}
+                className={`inline-flex size-12 items-center justify-center rounded-2xl ${item.highlight ? "bg-gradient-to-br from-copper to-copper-lit text-on-copper" : "bg-copper/15 text-copper-lit"}`}
               >
                 <Icon className="size-5.5" strokeWidth={1.6} aria-hidden />
               </div>

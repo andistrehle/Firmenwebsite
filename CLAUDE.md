@@ -12,7 +12,9 @@ Inhalte `PAGE_UNTERNEHMEN`/`PAGE_VEREINE`, Vorlage `components/pages/AudiencePag
 Der Fokus kann sich später verschieben. Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · lucide-react.
 Hosting auf Vercel, automatischer Deploy bei Push auf `main`.
 
-Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen.
+Vorübergehende Marke: **„Stift & Server“** (19.10.2026). Verbindliche Quelle für
+Logo, Farben und Schriften ist `brand/` (zuerst `brand/README.md` und
+`brand/tokens.css` lesen). Domain stift-und-server.de ist noch nicht registriert.
 
 ## Architektur-Regeln
 
@@ -37,13 +39,25 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 
 ## Design
 
-- Warmes Dunkel mit Kupfer als einzigem Akzent, angelehnt an die Vorlage
-  „Fluxora“ (Glut-Optik), für Kanzleien gedeckter. Tokens in `app/globals.css`,
-  dazu die Klassen `.bg-ember` (Glut-Hintergrund) und `.glass` (Glasfläche).
+- **Marke `brand/` ist verbindlich.** Farben nur über die Variablen aus
+  `brand/tokens.css`; `app/globals.css` reicht sie per `@theme inline` an Tailwind
+  weiter (`surface`=`--grund`, `ink`=`--weiss`, `ink-soft`=`--text`,
+  `ink-faint`=`--neben`, `copper`=`--kupfer`, `copper-lit`=`--kupfer-hell`,
+  `copper-deep`=`--glut`, `line`=`--linie`, `line-strong`=`--linie-stark`,
+  `on-copper`=`--auf-kupfer`). Keine neuen Hexwerte, kein zweiter Akzent.
+- Schrift auf Kupferflächen immer `text-on-copper`, nie weiß.
+- `copper-deep` (Glut) nur als Fläche, nie als Schrift oder dünne Linie.
+- Feldrahmen in `line-strong`, Fokus in Kupfer (globaler `:focus-visible`-Ring).
+  `line` ist nur Dekor.
+- `ink-faint` nie unter 14 px und nie für Kleingedrucktes, dort `ink-soft`.
+- Logo nur über `brand/Logo.tsx` (`<Logo variant="hell" />`), nie unter 24 px;
+  Favicon ist `brand/favicon.svg` (kopiert nach `app/icon.svg`). SVG-Pfade nicht ändern.
+- Glut-Optik angelehnt an die Vorlage „Fluxora“: Klassen `.bg-ember`
+  (Glut-Hintergrund) und `.glass` (Glasfläche) in `app/globals.css`.
 - Schriften lokal über next/font: Inter (Fließtext), Inter Tight (`font-display`,
-  Überschriften), Instrument Serif kursiv (`font-serif`) **nur für das eine
-  hervorgehobene Wort in der Hero-Überschrift jeder Seite** (`headline.accent`).
-  Nicht weiter ausdehnen.
+  Überschriften, `tracking-[-0.035em]`), Instrument Serif kursiv (`font-serif`)
+  **nur für das eine hervorgehobene Wort in der Hero-Überschrift jeder Seite**
+  (`headline.accent`). Keine weiteren Familien.
 - Haupt-Button: Kupfer-Verlauf als Pille mit runder Pfeil-Kachel
   (`ButtonLink` variant `primary`). Labels über Überschriften: Haarlinie mit
   kleinem Text (`components/ui/Tag.tsx`).
@@ -51,7 +65,7 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
   `prefers-reduced-motion`. Keine Animationsbibliothek.
 - Glaskarten im Hero zeigen nur nachprüfbare Fakten, nie Kundenzahlen oder Quoten.
 - Hero-Überschrift in Inter Tight **SemiBold** (`font-semibold`, `leading-[0.92]`,
-  `tracking-[-0.04em]`). ExtraBold wurde probiert und verworfen (Andreas, 19.10.2026).
+  `tracking-[-0.035em]`). ExtraBold wurde probiert und verworfen (Andreas, 19.10.2026).
 - Der Hero ist bewusst nur Text auf dem Glut-Hintergrund, ohne Bild
   (Entscheidung Andreas, 19.10.2026).
 - Keine Stockfotos von Personen, die nicht zum Team gehören, keine erfundenen
@@ -101,7 +115,7 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 
 ## Bewusste Platzhalter (nicht ungefragt „reparieren“)
 
-- Firmenname `BRAND.name` = „Arbeitstitel“, Domain `example.com`
+- Domain `example.com` (stift-und-server.de noch nicht registriert, DPMA-Recherche offen)
 - Telefon, E-Mail, USt-IdNr. in `LEGAL_ENTITY` (USt-IdNr. ist beantragt)
 - Datenschutzerklärung (`app/datenschutz/`)
 - Preis Stufe 1 „ab 2.490 €“: noch abzustimmen (Stufenmodell oder Dossier-Pakete)

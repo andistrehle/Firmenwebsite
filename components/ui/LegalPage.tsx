@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import Footer from "../Footer";
-import Wordmark from "./Wordmark";
+import { Logo } from "@/brand/Logo";
 import { BASE_PATH } from "@/lib/site-config";
 
 /** Schlichter Rahmen für Impressum und Datenschutz. */
@@ -18,8 +18,8 @@ export default function LegalPage({
     <>
       <header className="border-b border-line">
         <div className="mx-auto flex h-16 w-full max-w-3xl items-center px-5 sm:px-8">
-          <a href={`${BASE_PATH}/`}>
-            <Wordmark />
+          <a href={`${BASE_PATH}/`} className="flex items-center">
+            <Logo variant="hell" size={28} />
           </a>
         </div>
       </header>
