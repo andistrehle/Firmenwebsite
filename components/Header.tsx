@@ -3,8 +3,12 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { HEADER, NAV } from "@/lib/content";
+import { BASE_PATH } from "@/lib/site-config";
 import ButtonLink from "./ui/ButtonLink";
 import Wordmark from "./ui/Wordmark";
+
+/** Sprungmarken immer auf die Startseite beziehen, damit sie auch von Unterseiten funktionieren. */
+const home = (anchor: string) => `${BASE_PATH}/${anchor}`;
 
 /** Logo links, Navigation als Glas-Kapsel in der Mitte, helle Pille rechts. */
 export default function Header() {
@@ -12,7 +16,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-gradient-to-b from-surface via-surface/85 to-surface/0 pb-2">
       <div className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-        <a href="#top" aria-label="Zur Startseite">
+        <a href={`${BASE_PATH}/`} aria-label="Zur Startseite">
           <Wordmark />
         </a>
 
@@ -21,7 +25,7 @@ export default function Header() {
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={home(item.href)}
                   className="inline-flex rounded-lg bg-ink/5 px-3.5 py-2 text-[13.5px] text-ink/80 transition-colors hover:bg-ink/15 hover:text-ink"
                 >
                   {item.label}
@@ -32,9 +36,11 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <ButtonLink href="#kontakt" variant="light" className="hidden text-[13.5px] sm:inline-flex">
-            {HEADER.cta}
-          </ButtonLink>
+          <div className="hidden sm:block">
+            <ButtonLink href={home("#kontakt")} variant="light" className="text-[13.5px]">
+              {HEADER.cta}
+            </ButtonLink>
+          </div>
           <button
             type="button"
             className="glass inline-flex size-10 items-center justify-center rounded-xl text-ink lg:hidden"
@@ -56,7 +62,7 @@ export default function Header() {
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={home(item.href)}
                   onClick={() => setOpen(false)}
                   className="block rounded-xl px-3 py-3 text-ink/90 hover:bg-ink/5"
                 >
@@ -66,7 +72,7 @@ export default function Header() {
             ))}
           </ul>
           <div onClick={() => setOpen(false)}>
-            <ButtonLink href="#kontakt" className="w-full justify-between">
+            <ButtonLink href={home("#kontakt")} className="w-full justify-between">
               {HEADER.cta}
             </ButtonLink>
           </div>

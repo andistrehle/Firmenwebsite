@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import About from "@/components/sections/About";
+import Audiences from "@/components/sections/Audiences";
 import Contact from "@/components/sections/Contact";
 import Demo from "@/components/sections/Demo";
 import Faq from "@/components/sections/Faq";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Audiences />
         <Services />
         <Demo />
         <Process />

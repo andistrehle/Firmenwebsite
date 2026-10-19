@@ -2,7 +2,14 @@
 
 Vertriebswebsite für Anwaltskanzleien (Einzelanwälte, kleine Kanzleien).
 Die Seite muss Anfragen erzeugen und selbst beweisen, dass wir gute Websites
-bauen. Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · lucide-react.
+bauen.
+
+**Zielgruppen-Struktur (Entscheidung Andreas, 19.10.2026):** Die Hero-Überschrift
+spricht alle an (Mandanten, Kunden, Mitglieder). Direkt darunter eine Weiche mit
+drei Kacheln (`AUDIENCES`). Die Startseite bleibt im Kern bei den Kanzleien,
+Unternehmen und Vereine haben eigene Unterseiten (`/unternehmen`, `/vereine`,
+Inhalte `PAGE_UNTERNEHMEN`/`PAGE_VEREINE`, Vorlage `components/pages/AudiencePage.tsx`).
+Der Fokus kann sich später verschieben. Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · lucide-react.
 Hosting auf Vercel, automatischer Deploy bei Push auf `main`.
 
 Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen.
@@ -35,7 +42,8 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
   dazu die Klassen `.bg-ember` (Glut-Hintergrund) und `.glass` (Glasfläche).
 - Schriften lokal über next/font: Inter (Fließtext), Inter Tight (`font-display`,
   Überschriften), Instrument Serif kursiv (`font-serif`) **nur für das eine
-  hervorgehobene Wort im Hero** (`HERO.headline.accent`). Nicht weiter ausdehnen.
+  hervorgehobene Wort in der Hero-Überschrift jeder Seite** (`headline.accent`).
+  Nicht weiter ausdehnen.
 - Haupt-Button: Kupfer-Verlauf als Pille mit runder Pfeil-Kachel
   (`ButtonLink` variant `primary`). Labels über Überschriften: Haarlinie mit
   kleinem Text (`components/ui/Tag.tsx`).
@@ -100,4 +108,4 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 - Demo-Video (`SITE.demoVideo`, Abschnitt ist ausgeblendet, solange leer)
 - Terminbuchung (`SITE.bookingUrl`, leer = Buttons führen zum Formular)
 - Kontaktformular sendet per mailto, noch kein Server-Versand
-- Zweite Landingpage für andere Branchen (`/branchen/handwerk`) fehlt noch
+- Unterseiten `/unternehmen` und `/vereine`: Texte sind ein erster Entwurf, noch ohne eigene Referenzen für Unternehmen

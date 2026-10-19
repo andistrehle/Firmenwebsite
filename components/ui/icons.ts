@@ -1,4 +1,9 @@
 import {
+  Briefcase,
+  CalendarDays,
+  Trophy,
+  Users,
+  Workflow,
   Check,
   EyeOff,
   FileSignature,
@@ -13,6 +18,11 @@ import {
 
 /** Icons, die in lib/content.ts per Name referenziert werden können. */
 export const ICONS = {
+  briefcase: Briefcase,
+  calendar: CalendarDays,
+  trophy: Trophy,
+  users: Users,
+  workflow: Workflow,
   check: Check,
   eyeOff: EyeOff,
   fileSignature: FileSignature,

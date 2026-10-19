@@ -33,6 +33,7 @@ export type SummaryRow = { label: string; value: string; flag?: boolean };
 export type Reference = { tag: string; title: string; text: string; url?: string };
 
 export const NAV: NavItem[] = [
+  { label: "Für wen", href: "#zielgruppen" },
   { label: "Leistungen", href: "#leistungen" },
   { label: "Ablauf", href: "#ablauf" },
   { label: "Über uns", href: "#ueber-uns" },
@@ -65,6 +66,163 @@ export const HERO = {
     { value: "ab 2.490 €", label: "Website mit Anfragestrecke" },
     { value: "0", label: "Tracking-Cookies" },
   ] satisfies Stat[],
+};
+
+export type Audience = {
+  icon: IconName;
+  title: string;
+  text: string;
+  /** Anker auf der Startseite (#…) oder Pfad einer Unterseite (/…) */
+  href: string;
+  linkLabel: string;
+  highlight?: boolean;
+};
+
+/** Weiche direkt unter dem Hero: Kanzleien bleiben auf der Startseite, der Rest führt auf Unterseiten. */
+export const AUDIENCES = {
+  tag: "Für wen wir arbeiten",
+  headline: "Drei Zielgruppen. Ein Ziel: weniger verwalten.",
+  items: [
+    {
+      icon: "scale",
+      title: "Kanzleien",
+      text: "Websites mit Anfragestrecke für Einzelanwälte und kleine Kanzleien. Unser Schwerpunkt.",
+      href: "#leistungen",
+      linkLabel: "Zu den Leistungen",
+      highlight: true,
+    },
+    {
+      icon: "briefcase",
+      title: "Unternehmen",
+      text: "Für Handwerk, Dienstleister und kleine Betriebe: Website, Online-Anfragen und automatisierte Abläufe.",
+      href: "/unternehmen",
+      linkLabel: "Mehr erfahren",
+    },
+    {
+      icon: "users",
+      title: "Vereine",
+      text: "Website, Mitgliederverwaltung und Online-Anmeldung, damit der Vorstand mehr Zeit für das Vereinsleben hat.",
+      href: "/vereine",
+      linkLabel: "Mehr erfahren",
+    },
+  ] satisfies Audience[],
+};
+
+export type AudiencePageContent = {
+  meta: { title: string; description: string };
+  tag: string;
+  headline: { before: string; accent: string; after: string };
+  intro: string;
+  offersTag: string;
+  offersHeadline: string;
+  offers: Feature[];
+  tasksHeadline: string;
+  tasks: string[];
+  aiNote?: string;
+  reference?: { tag: string; title: string; text: string; url: string; linkLabel: string };
+  cta: { headline: string; text: string; button: string };
+  back: string;
+};
+
+const AUDIENCE_CTA_BUTTON = "Kostenlose Demo anfordern";
+
+/** Unterseite /unternehmen */
+export const PAGE_UNTERNEHMEN: AudiencePageContent = {
+  meta: {
+    title: "Für Unternehmen",
+    description:
+      "Websites, Online-Anfragen und automatisierte Abläufe für Handwerksbetriebe, Dienstleister und kleine Unternehmen.",
+  },
+  tag: "Für Unternehmen",
+  headline: { before: "Weniger Büro. Mehr", accent: "Zeit", after: "für Ihre Kunden." },
+  intro:
+    "Für Handwerksbetriebe, Dienstleister und kleine Unternehmen: Wir bauen Ihre Website und automatisieren die Abläufe, die heute Zeit kosten.",
+  offersTag: "Leistungen",
+  offersHeadline: "Was wir für Ihren Betrieb bauen.",
+  offers: [
+    {
+      icon: "layout",
+      title: "Website mit Anfrageformular",
+      text: "Eine schnelle Website, über die Kunden ihr Anliegen geordnet schildern und Fotos oder Unterlagen mitschicken.",
+    },
+    {
+      icon: "calendar",
+      title: "Online-Terminbuchung",
+      text: "Kunden buchen freie Termine selbst, Erinnerungen gehen automatisch raus. Welche Zeiten buchbar sind, legen Sie fest.",
+    },
+    {
+      icon: "workflow",
+      title: "Automatisierte Abläufe",
+      text: "Anfragen, Angebote und Rückfragen landen an einer Stelle, statt verstreut in Postfach und Telefonnotizen.",
+    },
+  ],
+  tasksHeadline: "Typische Aufgaben, die wir Ihnen abnehmen.",
+  tasks: [
+    "Anfragen per Formular sammeln statt am Telefon mitschreiben",
+    "Terminerinnerungen automatisch versenden",
+    "Wiederkehrende E-Mails als Vorlage vorbereiten",
+    "Unterlagen von Kunden geordnet empfangen",
+  ],
+  aiNote:
+    "KI setzen wir dort ein, wo sie verlässlich hilft, etwa beim Vorsortieren von Anfragen. Die Entscheidungen bleiben bei Ihnen.",
+  cta: {
+    headline: "Ihre kostenlose Demo in 48 Stunden.",
+    text: "Schreiben Sie uns kurz zu Ihrem Betrieb. Sie erhalten 2 bis 3 klickbare Entwürfe, unverbindlich.",
+    button: AUDIENCE_CTA_BUTTON,
+  },
+  back: "Zur Startseite",
+};
+
+/** Unterseite /vereine */
+export const PAGE_VEREINE: AudiencePageContent = {
+  meta: {
+    title: "Für Vereine",
+    description:
+      "Vereinswebsites, Online-Anmeldung und Spielpläne für Sportvereine, Verbände und gemeinnützige Vereine.",
+  },
+  tag: "Für Vereine",
+  headline: { before: "Weniger Verwaltung. Mehr", accent: "Zeit", after: "für Ihre Mitglieder." },
+  intro:
+    "Für Sportvereine, Verbände und gemeinnützige Vereine: Wir nehmen dem Vorstand die Arbeit ab, die sich jede Saison wiederholt.",
+  offersTag: "Leistungen",
+  offersHeadline: "Was wir für Ihren Verein bauen.",
+  offers: [
+    {
+      icon: "layout",
+      title: "Vereinswebsite",
+      text: "Termine, Ansprechpartner und Neuigkeiten an einer Stelle, vom Vorstand selbst zu pflegen.",
+    },
+    {
+      icon: "users",
+      title: "Mitglieder und Anmeldungen",
+      text: "Online-Anmeldung für Mitgliedschaft, Training oder Veranstaltungen, übersichtlich gesammelt.",
+    },
+    {
+      icon: "trophy",
+      title: "Spielpläne und Ergebnisse",
+      text: "Für Ligen und Turniere: Spielpläne, Ergebnisse und Tabellen, die sich automatisch aktualisieren.",
+    },
+  ],
+  tasksHeadline: "Typische Aufgaben, die wir dem Vorstand abnehmen.",
+  tasks: [
+    "Mitgliedsanträge online statt auf Papier",
+    "Termine und Trainingszeiten an einer Stelle",
+    "Ergebnisse direkt nach dem Spiel veröffentlicht",
+    "Weniger Rundmails, weil alles auf der Website steht",
+  ],
+  reference: {
+    tag: "Eigenes Projekt",
+    title: "Plattform für Liga-, Spieler- und Vereinsverwaltung",
+    text: "Unsere eigene Webplattform für den Dartsport zeigt, was für Vereine und Verbände möglich ist: Spielpläne, Ergebnisse und Verwaltung an einem Ort.",
+    url: "https://www.mdudarts.de",
+    linkLabel: "Ansehen",
+  },
+  cta: {
+    headline: "Ihre kostenlose Demo in 48 Stunden.",
+    text: "Schreiben Sie uns kurz zu Ihrem Verein. Sie erhalten 2 bis 3 klickbare Entwürfe, unverbindlich.",
+    button: AUDIENCE_CTA_BUTTON,
+  },
+  back: "Zur Startseite",
 };
 
 export const SERVICE_STATUS_LABEL: Record<ServiceStatus, string> = {
@@ -172,7 +330,7 @@ export const REFERENCES = {
     {
       tag: "Eigenes Projekt",
       title: "Plattform für Liga-, Spieler- und Vereinsverwaltung",
-      text: "Eine Webplattform mit Spielplänen, Ergebnissen und Verwaltung für einen Dartverband.",
+      text: "Unsere eigene Webplattform für den Dartsport: Spielpläne, Ergebnisse und Verwaltung von Ligen, Spielern und Vereinen.",
       url: "https://www.mdudarts.de",
     },
   ] satisfies Reference[],

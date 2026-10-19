@@ -23,7 +23,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"; // T
  */
 export const BRAND = {
   name: "Arbeitstitel", // TODO: finaler Firmenname
-  claim: "Websites und digitale Abläufe für Kanzleien",
+  claim: "Websites und digitale Abläufe für Kanzleien, Unternehmen und Vereine",
 } as const;
 
 /**
