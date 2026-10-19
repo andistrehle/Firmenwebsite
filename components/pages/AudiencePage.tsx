@@ -16,8 +16,8 @@ export default function AudiencePage({ content: c }: { content: AudiencePageCont
     <>
       <Header />
       <main>
-        <section className="bg-ember relative -mt-20 overflow-hidden pt-20">
-          <div className="relative mx-auto w-full max-w-7xl px-5 pt-16 pb-24 sm:px-8 lg:pt-24 lg:pb-32">
+        <section className="bg-ember relative overflow-hidden">
+          <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24 sm:px-8 lg:pt-40 lg:pb-32">
             <a
               href={`${BASE_PATH}/`}
               className="inline-flex animate-rise items-center gap-1.5 text-sm text-ink-faint hover:text-ink"
