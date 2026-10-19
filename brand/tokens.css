@@ -1,0 +1,44 @@
+/* Stift & Server — Farb- und Schrift-Tokens
+   Warmes Dunkel, Kupfer als einziger Akzent.
+   Kontrastwerte gegen --grund in Klammern, gerechnet nach WCAG 2.1. */
+
+:root {
+  /* Hintergrund */
+  --grund: #140A06;         /* Seitengrund */
+  --abschnitt: #1B100B;     /* abgesetzte Abschnitte */
+  --karte: #21140E;         /* Karten */
+  --linie: #3A2A20;         /* Trennlinien, nur Dekor (1,4:1) */
+  --linie-stark: #6B5447;   /* Rahmen von Eingabefeldern, Fokus (3,3:1) */
+
+  /* Text */
+  --weiss: #F7F0EA;         /* Überschriften (17,3:1) */
+  --text: #CBBDB2;          /* Fließtext (10,7:1) */
+  --neben: #8F7F73;         /* Nebeninfos (5,1:1) — nie unter 14px */
+
+  /* Akzent */
+  --kupfer: #C6713A;        /* Hauptakzent (5,4:1) */
+  --kupfer-hell: #E3A067;   /* Verlaufsende, Akzentwort (8,8:1) */
+  --glut: #7A3A14;          /* NUR als Fläche, nie als Text (2,3:1) */
+  --verlauf: linear-gradient(90deg, #C6713A, #E3A067);
+
+  /* Beschriftung auf Kupfer: dunkel, nicht weiss.
+     #140A06 auf --kupfer = 5,4:1, auf --kupfer-hell = 8,8:1.
+     Weiss käme auf 3,6:1 bzw. 2,2:1 und fällt durch. */
+  --auf-kupfer: #140A06;
+
+  /* Schrift */
+  --font-display: "Inter Tight", system-ui, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-akzent: "Instrument Serif", Georgia, serif;
+}
+
+/* Regeln, die sich aus den Messungen ergeben:
+   1. Buttons und alle Flächen in Kupfer tragen --auf-kupfer als Schriftfarbe.
+   2. --glut ist Fläche. Darauf steht --weiss (8,6:1). Als Schrift oder dünne
+      Linie auf dunklem Grund ist es unsichtbar.
+   3. --linie trennt Abschnitte. Rahmen von Feldern, Checkboxen und Fokusringe
+      brauchen 3:1, dafür --linie-stark oder --kupfer.
+   4. --neben fällt auf Karten auf 4,65:1. Dort nicht unter 14px setzen und
+      kein Kleingedrucktes damit auszeichnen, dafür --text nehmen.
+   5. Das Akzentwort steht in --font-akzent kursiv, in --kupfer-hell auf
+      dunklem Grund oder --kupfer auf hellem. */
