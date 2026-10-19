@@ -50,6 +50,8 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 - Bewegung nur per CSS (`animate-rise`, gestaffelt), abgeschaltet bei
   `prefers-reduced-motion`. Keine Animationsbibliothek.
 - Glaskarten im Hero zeigen nur nachprüfbare Fakten, nie Kundenzahlen oder Quoten.
+- Hero-Überschrift in Inter Tight **SemiBold** (`font-semibold`, `leading-[0.92]`,
+  `tracking-[-0.04em]`). ExtraBold wurde probiert und verworfen (Andreas, 19.10.2026).
 - Der Hero ist bewusst nur Text auf dem Glut-Hintergrund, ohne Bild
   (Entscheidung Andreas, 19.10.2026).
 - Keine Stockfotos von Personen, die nicht zum Team gehören, keine erfundenen

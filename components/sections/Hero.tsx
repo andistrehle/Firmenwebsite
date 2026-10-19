@@ -27,7 +27,7 @@ export default function Hero() {
             </span>
           </p>
 
-          <h1 className="mt-6 animate-rise font-display text-[3rem] font-extrabold leading-[0.9] tracking-[-0.045em] text-balance text-ink [animation-delay:60ms] [text-shadow:0_6px_40px_rgb(0_0_0/0.45)] sm:text-7xl xl:text-[5.4rem]">
+          <h1 className="mt-6 animate-rise font-display text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.04em] text-balance text-ink [animation-delay:60ms] [text-shadow:0_6px_40px_rgb(0_0_0/0.45)] sm:text-7xl xl:text-[5.4rem]">
             {h.before}{" "}
             <em className="font-serif font-normal tracking-[-0.01em] text-copper-lit">{h.accent}</em>{" "}
             {h.after}
