@@ -9,7 +9,7 @@ export default function Video() {
   return (
     <Section>
       <SectionHeading tag={VIDEO.tag} headline={VIDEO.headline} />
-      <div className="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-panel shadow-lg">
+      <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl border border-line bg-panel shadow-2xl">
         <video
           controls
           preload="none"

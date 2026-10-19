@@ -9,7 +9,7 @@ import Section from "../ui/Section";
 import Tag from "../ui/Tag";
 
 const inputClass =
-  "w-full rounded-lg bg-surface px-4 py-3.5 text-ink placeholder:text-ink-faint focus:outline-none focus:ring-2 focus:ring-ink/20";
+  "w-full rounded-xl border border-line bg-surface/70 px-4 py-3.5 text-ink placeholder:text-ink-faint focus:border-copper/60 focus:outline-none focus:ring-2 focus:ring-copper/20";
 
 /** Kontaktformular. Sendet bewusst per mailto, bis ein Server-Versand eingerichtet ist. */
 export default function Contact() {
@@ -32,18 +32,18 @@ export default function Contact() {
   }
 
   return (
-    <Section id="kontakt">
+    <Section id="kontakt" tone="ember">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <Tag>{CONTACT.tag}</Tag>
-          <h2 className="mt-4 text-[2.4rem] font-medium leading-[1.05] tracking-[-0.035em] text-balance text-ink sm:text-[3.4rem]">
+          <h2 className="mt-4 font-display text-[2.6rem] font-semibold leading-[0.95] tracking-[-0.04em] text-balance text-ink sm:text-[4rem]">
             {CONTACT.headline}
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-soft">{CONTACT.intro}</p>
           <ul className="mt-6 space-y-4">
             {CONTACT.checklist.map((item) => (
               <li key={item} className="flex items-center gap-4 text-ink-soft">
-                <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-md bg-surface-deep text-ink">
+                <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-copper/20 text-copper-lit">
                   <Check className="size-4" aria-hidden />
                 </span>
                 {item}
@@ -59,14 +59,14 @@ export default function Contact() {
             )}
             <p className="text-ink-soft">
               {CONTACT.emailLabel}{" "}
-              <a href={`mailto:${SITE.email}`} className="font-medium text-ink underline-offset-4 hover:underline">
+              <a href={`mailto:${SITE.email}`} className="font-medium text-ink underline-offset-4 hover:text-copper-lit hover:underline">
                 {SITE.email}
               </a>
             </p>
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl bg-surface-alt p-6 sm:p-8">
+        <form onSubmit={handleSubmit} className="glass space-y-5 rounded-3xl p-6 sm:p-8">
           <Field label={f.name} name="name" required autoComplete="name" />
           <Field label={f.email} name="email" type="email" required autoComplete="email" />
           <div className="grid gap-5 sm:grid-cols-2">
@@ -74,23 +74,23 @@ export default function Contact() {
             <Field label={f.website} placeholder={f.websitePlaceholder} name="website" type="url" autoComplete="url" />
           </div>
           <label className="block">
-            <span className="mb-2 block text-ink">{f.message}</span>
+            <span className="mb-2 block text-sm text-ink-soft">{f.message}</span>
             <textarea name="message" rows={4} placeholder={f.messagePlaceholder} className={inputClass} />
           </label>
           <p className="text-sm text-ink-soft">
             {f.privacyNote}{" "}
-            <a href={`${BASE_PATH}${SITE.legal.privacyPath}`} className="underline hover:text-ink">
+            <a href={`${BASE_PATH}${SITE.legal.privacyPath}`} className="underline hover:text-copper-lit">
               {f.privacyLink}
             </a>
             .
           </p>
           <button
             type="submit"
-            className="w-full rounded-lg bg-ink px-6 py-3.5 text-[15px] font-medium text-surface transition-colors hover:bg-panel-hover"
+            className="w-full rounded-full bg-gradient-to-r from-copper to-copper-lit px-6 py-3.5 text-[15px] font-semibold text-ink shadow-[0_14px_40px_-12px] shadow-copper/60 transition-all hover:-translate-y-0.5"
           >
             {f.submit}
           </button>
-          <p className="text-center text-xs text-ink-soft">{f.mailtoNote}</p>
+          <p className="text-center text-xs text-ink-faint">{f.mailtoNote}</p>
         </form>
       </div>
     </Section>
@@ -114,9 +114,9 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-ink">
+      <span className="mb-2 block text-sm text-ink-soft">
         {label}
-        {required && <span className="text-ink-soft"> *</span>}
+        {required && <span className="text-copper-lit"> *</span>}
       </span>
       <input name={name} type={type} required={required} autoComplete={autoComplete} placeholder={placeholder} className={inputClass} />
     </label>

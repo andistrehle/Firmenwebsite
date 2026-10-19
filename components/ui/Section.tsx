@@ -4,22 +4,25 @@ import type { ReactNode } from "react";
 export default function Section({
   id,
   children,
-  tone = "light",
+  tone = "base",
   className = "",
 }: {
   id?: string;
   children: ReactNode;
-  tone?: "light" | "alt" | "dots";
+  tone?: "base" | "alt" | "ember";
   className?: string;
 }) {
   const toneClass = {
-    light: "bg-surface",
+    base: "bg-surface",
     alt: "bg-surface-alt",
-    dots: "bg-surface-alt bg-dots",
+    ember: "bg-ember",
   }[tone];
   return (
-    <section id={id} className={`py-24 sm:py-32 ${toneClass} ${className}`}>
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
+    <section
+      id={id}
+      className={`relative overflow-hidden border-t border-line/60 py-24 sm:py-32 ${toneClass} ${className}`}
+    >
+      <div className="relative mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>
     </section>
   );
 }

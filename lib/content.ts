@@ -46,14 +46,26 @@ export const HEADER = {
   menuClose: "Menü schließen",
 };
 
+export type Stat = { value: string; label: string };
+
 export const HERO = {
-  tag: "Websites für Anwaltskanzleien",
-  headline: "Ihre Mandanten erreichen Sie online, bevor sie anrufen.",
+  note: ["Persönlich für Sie da", "in München und NRW"],
+  /** Überschrift in Zeilen. `accent` wird kursiv in der Serifenschrift gesetzt. */
+  headline: {
+    before: "Ihre",
+    accent: "Mandanten",
+    after: "erreichen Sie online, bevor sie anrufen.",
+  },
   subline:
     "Wir bauen Kanzlei-Websites mit einer Anfragestrecke, die Anliegen geordnet bei Ihnen ankommen lässt. Ihre Kanzleisoftware bleibt, wie sie ist.",
   primaryCta: "Kostenlose Demo anfordern",
   secondaryCta: "Leistungen ansehen",
-  trust: ["Ohne Tracking", "Ohne Cookie-Banner", "Persönlich in München und NRW"],
+  /** Glaskarten: nur nachprüfbare Fakten, keine Kundenzahlen */
+  stats: [
+    { value: "48 h", label: "bis zu Ihrer kostenlosen Demo" },
+    { value: "ab 2.490 €", label: "Website mit Anfragestrecke" },
+    { value: "0", label: "Tracking-Cookies" },
+  ] satisfies Stat[],
   /** Schwebende Kärtchen auf dem Website-Entwurf */
   chips: [
     { icon: "inbox", title: "Neue Anfrage", text: "Arbeitsrecht, Kündigung" },

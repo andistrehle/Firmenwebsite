@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
+import { Instrument_Serif, Inter, Inter_Tight } from "next/font/google";
 import { SITE } from "@/lib/site-config";
 import "./globals.css";
 
 // Wird von next/font zur Build-Zeit heruntergeladen und lokal ausgeliefert —
 // zur Laufzeit erfolgt keine Verbindung zu Google.
-const instrument = Instrument_Sans({
-  variable: "--font-instrument",
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
   subsets: ["latin"],
+  display: "swap",
+});
+// Nur kursiv: für das eine hervorgehobene Wort im Hero
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
   display: "swap",
 });
 
@@ -33,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body className={`${instrument.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${interTight.variable} ${instrumentSerif.variable} font-sans`}>{children}</body>
     </html>
   );
 }

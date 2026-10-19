@@ -30,12 +30,22 @@ Firmenname ist **noch nicht entschieden** (Arbeitstitel). Domain hängt am Namen
 
 ## Design
 
-- Monochrom und warm, angelehnt an den Dribbble-Shot „Consultia“
-  (Yohann Varillon): Weiß, warmes Hellgrau, schwarze Buttons, keine Akzentfarbe.
-  Schrift Instrument Sans, Überschriften in mittlerer Stärke mit Punkt am Ende,
-  kleine graue Label-Kästchen (`components/ui/Tag.tsx`) über jeder Überschrift.
-- Keine Stockfotos von Personen, die nicht zum Team gehören. Bildflächen zeigen
-  gezeichnete Website-Entwürfe oder echte Fotos von Andreas und Dennis.
+- Warmes Dunkel mit Kupfer als einzigem Akzent, angelehnt an die Vorlage
+  „Fluxora“ (Glut-Optik), für Kanzleien gedeckter. Tokens in `app/globals.css`,
+  dazu die Klassen `.bg-ember` (Glut-Hintergrund) und `.glass` (Glasfläche).
+- Schriften lokal über next/font: Inter (Fließtext), Inter Tight (`font-display`,
+  Überschriften), Instrument Serif kursiv (`font-serif`) **nur für das eine
+  hervorgehobene Wort im Hero** (`HERO.headline.accent`). Nicht weiter ausdehnen.
+- Haupt-Button: Kupfer-Verlauf als Pille mit runder Pfeil-Kachel
+  (`ButtonLink` variant `primary`). Labels über Überschriften: Haarlinie mit
+  kleinem Text (`components/ui/Tag.tsx`).
+- Bewegung nur per CSS (`animate-rise`, gestaffelt), abgeschaltet bei
+  `prefers-reduced-motion`. Keine Animationsbibliothek.
+- Glaskarten im Hero zeigen nur nachprüfbare Fakten, nie Kundenzahlen oder Quoten.
+- Keine Stockfotos von Personen, die nicht zum Team gehören, keine erfundenen
+  Partnerlogos. Bildflächen zeigen gezeichnete Website-Entwürfe oder echte Fotos
+  von Andreas und Dennis. Ein Hintergrundvideo nur selbst gedreht und klein
+  (Ladezeit auf dem Handy).
 
 ## Rechtliches (verbindlich)
 

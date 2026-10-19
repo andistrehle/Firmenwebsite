@@ -1,37 +1,69 @@
-import { Check } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { HERO } from "@/lib/content";
 import ButtonLink from "../ui/ButtonLink";
-import Tag from "../ui/Tag";
 import HeroMockup from "./HeroMockup";
 
+/** Vollflächiger Hero mit Glut-Hintergrund. Blöcke gleiten gestaffelt ein (reine CSS-Animation). */
 export default function Hero() {
+  const h = HERO.headline;
   return (
-    <section id="top" className="bg-surface pb-24 pt-10 sm:pb-32 sm:pt-20">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.1fr_1fr]">
+    <section id="top" className="bg-ember relative -mt-20 overflow-hidden pt-20">
+      {/* feine senkrechte Haarlinien als Struktur */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 hidden justify-between px-[30%] md:flex">
+        <span className="w-px bg-ink/5" />
+        <span className="ml-3.5 w-px bg-ink/5" />
+        <span className="w-px bg-ink/5" />
+      </div>
+
+      <div className="relative mx-auto grid min-h-[calc(100svh-5rem)] w-full max-w-7xl items-center gap-16 px-5 py-16 sm:px-8 lg:grid-cols-[1.15fr_1fr] lg:py-20">
         <div>
-          <Tag>{HERO.tag}</Tag>
-          <h1 className="mt-5 text-[2.6rem] font-medium leading-[1.05] tracking-[-0.035em] text-balance text-ink sm:text-6xl">
-            {HERO.headline}
+          <p className="flex w-fit animate-rise items-center gap-2.5 border-t border-line pt-3 text-[12px] leading-snug text-ink-faint">
+            <MapPin className="size-5 shrink-0" strokeWidth={1.3} aria-hidden />
+            <span>
+              {HERO.note[0]}
+              <br />
+              {HERO.note[1]}
+            </span>
+          </p>
+
+          <h1 className="mt-6 animate-rise font-display text-[2.9rem] font-semibold leading-[0.92] tracking-[-0.04em] text-balance text-ink [animation-delay:60ms] [text-shadow:0_6px_40px_rgb(0_0_0/0.45)] sm:text-7xl xl:text-[5.4rem]">
+            {h.before}{" "}
+            <em className="font-serif font-normal tracking-[-0.01em] text-copper-lit">{h.accent}</em>{" "}
+            {h.after}
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-pretty text-ink-soft">
+
+          <p className="mt-6 max-w-md animate-rise text-[15px] leading-relaxed text-ink-soft [animation-delay:140ms] sm:text-base">
             {HERO.subline}
           </p>
-          <div className="mt-9 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+
+          <div className="mt-8 flex animate-rise flex-wrap items-center gap-x-5 gap-y-2 [animation-delay:200ms]">
             <ButtonLink href="#kontakt">{HERO.primaryCta}</ButtonLink>
             <ButtonLink href="#leistungen" variant="text">
               {HERO.secondaryCta}
             </ButtonLink>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft">
-            {HERO.trust.map((item) => (
-              <li key={item} className="inline-flex items-center gap-2">
-                <Check className="size-4 text-ink" aria-hidden />
-                {item}
+
+          <ul className="mt-10 grid max-w-xl animate-rise grid-cols-3 gap-2 sm:gap-3 [animation-delay:280ms]">
+            {HERO.stats.map((stat, i) => (
+              <li
+                key={stat.label}
+                className={`glass relative flex min-h-32 flex-col justify-between rounded-2xl p-3 sm:p-4 ${i === 1 ? "bg-gradient-to-br from-copper-deep/50 to-panel/40" : ""}`}
+              >
+                <span aria-hidden className="absolute right-4 top-3 hidden text-ink-faint sm:block">
+                  *
+                </span>
+                <span className="font-display text-xl font-medium whitespace-nowrap tracking-[-0.03em] text-ink sm:text-3xl">
+                  {stat.value}
+                </span>
+                <span className="text-[12px] leading-snug text-ink-faint">{stat.label}</span>
               </li>
             ))}
           </ul>
         </div>
-        <HeroMockup />
+
+        <div className="animate-rise [animation-delay:360ms]">
+          <HeroMockup />
+        </div>
       </div>
     </section>
   );

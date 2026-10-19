@@ -9,40 +9,40 @@ export default function HeroMockup() {
   const m = HERO.mockup;
   const [chipTop, chipBottom] = HERO.chips;
   return (
-    <div className="relative aspect-[5/5.2] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-surface-deep via-ink-faint/60 to-panel p-6 sm:p-10">
-      {/* Browserfenster */}
+    <div className="relative mx-auto w-full max-w-lg pt-10 pb-12">
+      {/* Browserfenster mit heller Kanzlei-Website */}
       <div
         aria-hidden
-        className="absolute inset-x-6 top-20 bottom-24 overflow-hidden rounded-xl bg-surface shadow-2xl sm:inset-x-10 sm:top-24"
+        className="overflow-hidden rounded-2xl bg-paper shadow-[0_40px_120px_-30px] shadow-copper/50 ring-1 ring-ink/10"
       >
-        <div className="flex items-center gap-1.5 border-b border-line bg-surface-alt px-4 py-2.5">
-          <span className="size-2.5 rounded-full bg-surface-deep" />
-          <span className="size-2.5 rounded-full bg-surface-deep" />
-          <span className="size-2.5 rounded-full bg-surface-deep" />
-          <span className="ml-3 rounded bg-surface px-3 py-0.5 text-[11px] text-ink-faint">
+        <div className="flex items-center gap-1.5 border-b border-paper-ink/10 px-4 py-2.5">
+          <span className="size-2.5 rounded-full bg-paper-ink/15" />
+          <span className="size-2.5 rounded-full bg-paper-ink/15" />
+          <span className="size-2.5 rounded-full bg-paper-ink/15" />
+          <span className="ml-3 rounded bg-paper-ink/5 px-3 py-0.5 text-[11px] text-paper-ink/50">
             {m.url}
           </span>
         </div>
-        <div className="p-5 sm:p-7">
+        <div className="p-6 sm:p-8">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium tracking-tight text-ink">{m.firm}</span>
+            <span className="font-display text-sm font-semibold tracking-tight text-paper-ink">{m.firm}</span>
             <span className="flex gap-2">
-              <span className="h-1.5 w-8 rounded-full bg-surface-deep" />
-              <span className="h-1.5 w-8 rounded-full bg-surface-deep" />
-              <span className="h-1.5 w-8 rounded-full bg-surface-deep" />
+              <span className="h-1.5 w-8 rounded-full bg-paper-ink/10" />
+              <span className="h-1.5 w-8 rounded-full bg-paper-ink/10" />
+              <span className="h-1.5 w-8 rounded-full bg-paper-ink/10" />
             </span>
           </div>
-          <p className="mt-8 max-w-[14rem] text-2xl font-medium leading-tight tracking-[-0.03em] text-ink sm:text-3xl">
+          <p className="mt-9 max-w-[15rem] font-display text-3xl font-semibold leading-[1.02] tracking-[-0.035em] text-paper-ink">
             {m.headline}
           </p>
-          <div className="mt-3 h-1.5 w-3/5 rounded-full bg-surface-deep" />
-          <div className="mt-2 h-1.5 w-2/5 rounded-full bg-surface-deep" />
-          <span className="mt-6 inline-block rounded-md bg-ink px-3 py-2 text-[11px] font-medium text-surface">
+          <div className="mt-4 h-1.5 w-3/5 rounded-full bg-paper-ink/10" />
+          <div className="mt-2 h-1.5 w-2/5 rounded-full bg-paper-ink/10" />
+          <span className="mt-6 inline-block rounded-full bg-paper-ink px-4 py-2 text-[11px] font-medium text-paper">
             {m.cta}
           </span>
           <div className="mt-8 grid grid-cols-3 gap-2">
             {m.areas.map((area) => (
-              <div key={area} className="rounded-md bg-surface-alt px-2 py-3 text-[11px] text-ink-soft">
+              <div key={area} className="rounded-lg bg-paper-ink/5 px-2.5 py-3 text-[11px] text-paper-ink/70">
                 {area}
               </div>
             ))}
@@ -50,8 +50,8 @@ export default function HeroMockup() {
         </div>
       </div>
 
-      <GlassChip {...chipTop} className="absolute right-4 top-5 sm:right-6 sm:top-7" />
-      <GlassChip {...chipBottom} className="absolute bottom-6 left-4 sm:bottom-8 sm:left-6" />
+      <GlassChip {...chipTop} className="absolute -right-2 top-0 sm:-right-8" />
+      <GlassChip {...chipBottom} className="absolute bottom-0 -left-2 sm:-left-10" />
     </div>
   );
 }

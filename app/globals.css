@@ -1,21 +1,41 @@
 @import "tailwindcss";
 
 @theme {
-  /* Farbschema: monochrom und warm, angelehnt an Editorial-Designs.
-     Keine Akzentfarbe, Schwarz übernimmt die Rolle des Handlungsaufrufs. */
-  --color-surface: #fefefe; /* Grundfläche */
-  --color-surface-alt: #f4f3f0; /* warmes Hellgrau: Abschnitte, Karten */
-  --color-surface-deep: #e9e7e3; /* Labels, Hover auf Hellgrau */
-  --color-ink: #181819; /* Überschriften, Buttons */
-  --color-ink-soft: #66615f; /* Fließtext */
-  --color-ink-faint: #9d9fa7; /* Nebeninfos, Linien mit Bedeutung */
-  --color-panel: #2a292b; /* dunkle Karten und Flächen */
-  --color-panel-hover: #3a393b;
-  --color-line: #e4e2de; /* Rahmen */
-  --color-warn: #8a5300; /* Hinweis „Fristen prüfen“ */
-  --color-warn-soft: #fbf0dc;
+  /* Farbschema: warmes Dunkel mit Kupfer als einzigem Akzent.
+     Angelehnt an die Glut-Optik der Vorlage „Fluxora“, für Kanzleien gedeckter. */
+  --color-surface: #140a06; /* Grund, fast schwarz mit warmem Stich */
+  --color-surface-alt: #1b100b; /* abgesetzte Abschnitte */
+  --color-surface-deep: #2a1a12; /* Labels, Hover */
+  --color-panel: #21140e; /* Karten */
+  --color-panel-hover: #2e1d15;
+  --color-ink: #f7f0ea; /* Überschriften, warmes Weiß */
+  --color-ink-soft: #cbbdb2; /* Fließtext */
+  --color-ink-faint: #8f7f73; /* Nebeninfos */
+  --color-line: #3a2a20; /* Haarlinien, Rahmen */
+  --color-copper: #c6713a; /* Akzent: Kupfer */
+  --color-copper-lit: #e3a067; /* Akzent hell, Verlaufsende */
+  --color-copper-deep: #7a3a14; /* Glut im Hintergrund */
+  --color-paper: #fbf8f5; /* helle Flächen im Website-Entwurf */
+  --color-paper-ink: #1d1410;
+  --color-warn: #f2b660; /* Hinweis „Fristen prüfen“ */
+  --color-warn-soft: #3b2611;
 
-  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+
+  --animate-rise: rise 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 html {
@@ -24,7 +44,7 @@ html {
 
 /* Sticky-Header nicht über Sprungziele legen */
 section[id] {
-  scroll-margin-top: 4.5rem;
+  scroll-margin-top: 5rem;
 }
 
 body {
@@ -33,14 +53,40 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Punktraster als dezenter Hintergrund (Über-uns-Bereich) */
-.bg-dots {
-  background-image: radial-gradient(var(--color-surface-deep) 1px, transparent 1px);
-  background-size: 22px 22px;
+::selection {
+  background: var(--color-copper);
+  color: var(--color-ink);
+}
+
+/* Glut-Hintergrund: Kupfer steigt von rechts unten auf, links bleibt es dunkel
+   für die Lesbarkeit. Wird im Hero und in Akzentflächen verwendet. */
+.bg-ember {
+  background:
+    radial-gradient(60% 70% at 85% 95%, color-mix(in srgb, var(--color-copper) 55%, transparent), transparent 70%),
+    radial-gradient(45% 50% at 100% 40%, color-mix(in srgb, var(--color-copper-deep) 70%, transparent), transparent 70%),
+    linear-gradient(165deg, var(--color-surface-alt) 0%, var(--color-surface) 70%);
+}
+
+/* Glasfläche: halbtransparent, unscharf hinterlegt, feine Lichtkante oben 
+   Liegt in der components-Ebene, damit Tailwind-Klassen sie überschreiben können. */
+@layer components {
+  .glass {
+    background: color-mix(in srgb, var(--color-panel) 55%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-ink) 8%, transparent);
+    backdrop-filter: blur(16px) saturate(1.1);
+    -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
   }
 }

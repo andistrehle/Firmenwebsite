@@ -31,7 +31,7 @@ export default function LegalPage({
           <ArrowLeft className="size-4" aria-hidden />
           {backLabel}
         </a>
-        <h1 className="text-3xl font-medium tracking-tight text-ink sm:text-4xl">{title}</h1>
+        <h1 className="font-display text-4xl font-semibold tracking-[-0.03em] text-ink sm:text-5xl">{title}</h1>
         <div className="mt-10 space-y-8 leading-relaxed text-ink">{children}</div>
       </main>
       <Footer />
