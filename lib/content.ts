@@ -475,8 +475,95 @@ export const IMPRINT = {
   back: "Zur Startseite",
 };
 
+export type PrivacySection = { heading: string; paragraphs: string[]; list?: string[] };
+
+/**
+ * Datenschutzerklärung nach Art. 13 DSGVO.
+ * Beschreibt nur, was tatsächlich läuft: Hosting bei Vercel, lokal ausgelieferte
+ * Schriften, Kontakt per E-Mail. Bei jedem neuen Dienst (Terminbuchung, Formular-
+ * versand, Analyse) hier ergänzen, bevor er live geht.
+ */
 export const PRIVACY_PAGE = {
   title: "Datenschutzerklärung",
-  text: "Die Datenschutzerklärung wird vor der Veröffentlichung ergänzt. Sie beschreibt genau die Dienste, die auf dieser Website tatsächlich laufen.",
   back: "Zur Startseite",
+  stand: "Stand: 19. Oktober 2026",
+  controllerHeading: "Verantwortlicher",
+  controllerIntro: "Verantwortlich für die Datenverarbeitung auf dieser Website ist:",
+  emailLabel: "E-Mail",
+  phoneLabel: "Telefon",
+  missing: "wird ergänzt",
+  sections: [
+    {
+      heading: "Das Wichtigste in Kürze",
+      paragraphs: [
+        "Diese Website setzt keine Cookies, verwendet keine Analyse- oder Trackingdienste und bindet keine Inhalte von Drittanbietern ein. Personenbezogene Daten fallen nur an, wenn Sie die Seite aufrufen (technisch notwendige Protokolldaten beim Hoster) und wenn Sie uns eine E-Mail schreiben.",
+      ],
+    },
+    {
+      heading: "Hosting und Protokolldaten",
+      paragraphs: [
+        "Diese Website wird bei Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, USA, gehostet. Beim Aufruf der Seite verarbeitet Vercel automatisch folgende Daten, die Ihr Browser übermittelt:",
+      ],
+      list: [
+        "IP-Adresse und daraus abgeleiteter ungefährer Standort (Stadt, Land)",
+        "Datum und Uhrzeit des Aufrufs",
+        "aufgerufene Seite",
+        "Browser, Betriebssystem und Gerätetyp",
+      ],
+    },
+    {
+      heading: "Zweck, Rechtsgrundlage und Speicherdauer",
+      paragraphs: [
+        "Die Daten werden verarbeitet, um die Website auszuliefern, ihren stabilen Betrieb zu gewährleisten und Angriffe abzuwehren. Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und funktionsfähigen Internetauftritt nach Art. 6 Abs. 1 lit. f DSGVO.",
+        "Vercel verarbeitet die Daten in unserem Auftrag auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO und speichert sie nur so lange, wie es für Betrieb und Sicherheit erforderlich ist.",
+        "Dabei können Daten in die USA übermittelt werden. Vercel ist nach dem EU-US Data Privacy Framework zertifiziert. Für zertifizierte Unternehmen hat die EU-Kommission mit Beschluss vom 10. Juli 2023 ein angemessenes Datenschutzniveau festgestellt (Art. 45 DSGVO).",
+      ],
+    },
+    {
+      heading: "Schriften",
+      paragraphs: [
+        "Die auf dieser Website verwendeten Schriften werden zusammen mit der Website über unseren Hoster ausgeliefert. Beim Aufruf der Seite wird keine Verbindung zu Google oder anderen Schriftanbietern aufgebaut.",
+      ],
+    },
+    {
+      heading: "Kontakt per E-Mail und Kontaktformular",
+      paragraphs: [
+        "Das Kontaktformular übermittelt keine Daten an unseren Server. Beim Absenden öffnet sich Ihr eigenes E-Mail-Programm mit einer vorbereiteten Nachricht, die Sie selbst verschicken.",
+        "Wenn Sie uns schreiben, verarbeiten wir die Angaben aus Ihrer Nachricht (etwa Name, Kanzlei oder Unternehmen, E-Mail-Adresse, Website und Ihr Anliegen), um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf einen Vertrag zielt, im Übrigen unser berechtigtes Interesse an der Beantwortung nach Art. 6 Abs. 1 lit. f DSGVO.",
+        "Wir löschen Ihre Nachricht, sobald die Anfrage erledigt ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Geschäftsbriefe bewahren wir nach steuerrechtlichen Vorgaben bis zu sechs Jahre auf (§ 147 AO).",
+        "Unsere E-Mails werden bei [E-MAIL-ANBIETER] verarbeitet.",
+      ],
+    },
+    {
+      heading: "Links zu anderen Websites",
+      paragraphs: [
+        "Diese Website enthält Links zu anderen Websites, etwa zu Referenzprojekten. Erst wenn Sie einen solchen Link anklicken, werden Daten an den Betreiber der verlinkten Seite übermittelt. Für dessen Datenverarbeitung ist allein dieser verantwortlich.",
+      ],
+    },
+    {
+      heading: "Ihre Rechte",
+      paragraphs: ["Sie haben gegenüber uns folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:"],
+      list: [
+        "Auskunft (Art. 15 DSGVO)",
+        "Berichtigung (Art. 16 DSGVO)",
+        "Löschung (Art. 17 DSGVO)",
+        "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+        "Datenübertragbarkeit (Art. 20 DSGVO)",
+        "Widerspruch gegen Verarbeitungen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (Art. 21 DSGVO)",
+      ],
+    },
+    {
+      heading: "Beschwerde bei einer Aufsichtsbehörde",
+      paragraphs: [
+        "Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO). Für uns zuständig ist das Bayerische Landesamt für Datenschutzaufsicht, Promenade 18, 91522 Ansbach.",
+      ],
+    },
+    {
+      heading: "Weitere Hinweise",
+      paragraphs: [
+        "Sie sind nicht verpflichtet, uns personenbezogene Daten bereitzustellen. Ohne Ihre Angaben können wir eine Anfrage jedoch nicht beantworten. Eine automatisierte Entscheidungsfindung einschließlich Profiling findet nicht statt.",
+        "Die Verbindung zu dieser Website ist per TLS verschlüsselt. Sie erkennen das am Schloss-Symbol und an „https://“ in der Adresszeile Ihres Browsers.",
+      ],
+    },
+  ] satisfies PrivacySection[],
 };

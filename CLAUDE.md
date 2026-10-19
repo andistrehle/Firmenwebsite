@@ -117,7 +117,7 @@ Logo, Farben und Schriften ist `brand/` (zuerst `brand/README.md` und
 
 - Domain `example.com` (stift-und-server.de noch nicht registriert, DPMA-Recherche offen)
 - Telefon, E-Mail, USt-IdNr. in `LEGAL_ENTITY` (USt-IdNr. ist beantragt)
-- Datenschutzerklärung (`app/datenschutz/`)
+- Datenschutzerklärung (Inhalt `PRIVACY_PAGE`): Entwurf, `[E-MAIL-ANBIETER]` offen, vor Livegang juristisch prüfen lassen. Jeder neue Dienst (Terminbuchung, Formularversand, Analyse) muss dort eingetragen werden, bevor er live geht
 - Preis Stufe 1 „ab 2.490 €“: noch abzustimmen (Stufenmodell oder Dossier-Pakete)
 - Pilotreferenz anonym, bis die Kanzlei schriftlich zustimmt
 - Portraitfotos (Initialen als Platzhalter), Text zu Dennis noch nicht bestätigt
