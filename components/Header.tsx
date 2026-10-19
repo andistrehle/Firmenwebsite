@@ -11,20 +11,21 @@ import Wordmark from "./ui/Wordmark";
 const home = (anchor: string) => `${BASE_PATH}/${anchor}`;
 
 /**
- * Schwebende Navigation als schmale Pille, transparent mit Glas-Unschärfe.
+ * Schwebende Navigation als Pille über die volle Breite, transparent mit Glas-Unschärfe.
  * Liegt fixiert über dem Hero, der bis an den oberen Rand reicht.
  */
 export default function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-5 sm:px-6">
-      <div className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between gap-4 rounded-full border border-ink/12 bg-surface/30 py-2 pr-2 pl-5 shadow-[0_10px_40px_-12px] shadow-black/60 backdrop-blur-xl">
+      {/* Volle Breite; leichter dunkler Verlauf links und rechts, Mitte transparenter */}
+      <div className="flex h-14 w-full items-center justify-between gap-4 rounded-full border border-ink/12 bg-gradient-to-r from-surface/70 via-surface/25 to-surface/70 py-2 pr-2 pl-5 shadow-[0_10px_40px_-12px] shadow-black/60 backdrop-blur-xl sm:pl-7">
         <a href={`${BASE_PATH}/`} aria-label="Zur Startseite" className="shrink-0">
           <Wordmark />
         </a>
 
         <nav aria-label="Hauptnavigation" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center gap-2 xl:gap-5">
             {NAV.map((item) => (
               <li key={item.href}>
                 <a
@@ -59,7 +60,7 @@ export default function Header() {
       {open && (
         <nav
           aria-label="Hauptnavigation mobil"
-          className="mx-auto mt-2 max-w-4xl rounded-3xl border border-ink/12 bg-surface/97 p-3 shadow-2xl backdrop-blur-xl lg:hidden"
+          className="mt-2 rounded-3xl border border-ink/12 bg-surface/97 p-3 shadow-2xl backdrop-blur-xl lg:hidden"
         >
           <ul className="mb-2 grid gap-0.5">
             {NAV.map((item) => (
